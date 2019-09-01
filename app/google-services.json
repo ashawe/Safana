@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "659806751242",
+    "firebase_url": "https://pulzion-safana.firebaseio.com",
+    "project_id": "pulzion-safana",
+    "storage_bucket": "pulzion-safana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659806751242:android:dddde9ba1879f355",
+        "android_client_info": {
+          "package_name": "com.ashstudios.safana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659806751242-4b120mq18hmbn92udat4imdiqlhg9h1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ashstudios.safana",
+            "certificate_hash": "5edcc4257d6822853c5c59e19b109e662d1d010b"
+          }
+        },
+        {
+          "client_id": "659806751242-k76ntpb3cauoaquervvsonv0164rld39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoJOq-XiVWs0rytCnr7ZgBpOiZebAId70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659806751242-k76ntpb3cauoaquervvsonv0164rld39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
