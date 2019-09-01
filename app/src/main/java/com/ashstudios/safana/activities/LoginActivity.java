@@ -1,8 +1,10 @@
-package com.ashstudios.safana;
+package com.ashstudios.safana.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.ashstudios.safana.R;
 
 public class LoginActivity extends AppCompatActivity {
 
