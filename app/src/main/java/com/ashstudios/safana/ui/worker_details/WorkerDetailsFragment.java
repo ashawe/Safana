@@ -1,9 +1,11 @@
 package com.ashstudios.safana.ui.worker_details;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -18,22 +20,28 @@ import com.ashstudios.safana.adapters.WorkerRVAdapter;
 
 public class WorkerDetailsFragment extends Fragment {
 
-    private WorkerDetailsViewModel workerDetailsViewModel;
+    static private WorkerDetailsViewModel workerDetailsViewModel;
+    static RecyclerView recyclerView;
+    WorkerRVAdapter workerRVAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         workerDetailsViewModel = ViewModelProviders.of(this).get(WorkerDetailsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_worker_details, container, false);
 
-        RecyclerView recyclerView = root.findViewById(R.id.rc_worker_details);
-        WorkerRVAdapter workerRVAdapter = new WorkerRVAdapter(
-                workerDetailsViewModel.getWorkerNames(),
-                workerDetailsViewModel.getWorkerRoles(),
-                workerDetailsViewModel.getImageUrls(),
-                getContext());
+        recyclerView = root.findViewById(R.id.rc_worker_details);
+        workerRVAdapter = new WorkerRVAdapter(workerDetailsViewModel,getContext());
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(workerRVAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return root;
+    }
+
+    public static void sort(Context mContext,Bundle b)
+    {
+        Toast.makeText( mContext, "sorting...", Toast.LENGTH_LONG).show();
+        workerDetailsViewModel.sort(b);
+        WorkerRVAdapter workerRVAdapter = new WorkerRVAdapter(workerDetailsViewModel,mContext);
+        recyclerView.setAdapter(workerRVAdapter);
     }
 }

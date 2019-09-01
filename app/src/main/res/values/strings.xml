@@ -20,4 +20,7 @@
     <string name="dummy_line">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="dummy_short_name">John Doe</string>
     <string name="dummy_long_name">Robert Downey JR.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

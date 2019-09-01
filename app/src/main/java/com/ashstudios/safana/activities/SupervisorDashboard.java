@@ -2,10 +2,15 @@ package com.ashstudios.safana.activities;
 
 import android.os.Bundle;
 
+import com.ashstudios.safana.BottomSheetSortFragment;
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.adapters.WorkerRVAdapter;
+import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -21,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Adapter;
 
 public class SupervisorDashboard extends AppCompatActivity {
 
@@ -66,5 +72,23 @@ public class SupervisorDashboard extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                View view = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_sort, null);
+
+//                BottomSheetDialog dialog = new BottomSheetDialog(this);
+//                dialog.setContentView(view);
+//                dialog.show();
+                BottomSheetSortFragment bottomSheetFragment = new BottomSheetSortFragment();
+                bottomSheetFragment.show(getSupportFragmentManager(), "hello");
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

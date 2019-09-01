@@ -7,15 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.activities.LoginActivity;
+import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -27,10 +30,10 @@ public class WorkerRVAdapter extends RecyclerView.Adapter<WorkerRVAdapter.ViewHo
 
     private Context mContext;
 
-    public WorkerRVAdapter(ArrayList<String> mName, ArrayList<String> mRoles, ArrayList<String> mImages, Context mContext) {
-        this.mName = mName;
-        this.mRoles = mRoles;
-        this.mImages = mImages;
+    public WorkerRVAdapter(WorkerDetailsViewModel workerDetailsViewModel, Context mContext) {
+        this.mName = workerDetailsViewModel.getWorkerNames();
+        this.mRoles = workerDetailsViewModel.getWorkerRoles();
+        this.mImages = workerDetailsViewModel.getImageUrls();
         this.mContext = mContext;
     }
 
