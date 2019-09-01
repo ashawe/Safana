@@ -12,13 +12,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".WorkerDashboardActivity"
-            android:label="Safana"
+            android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".SplashActivity" android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".activities.SplashActivity" android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
