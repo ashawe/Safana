@@ -1,7 +1,8 @@
-package com.ashstudios.safana;
+package com.ashstudios.safana.activities;
 
 import android.os.Bundle;
 
+import com.ashstudios.safana.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
