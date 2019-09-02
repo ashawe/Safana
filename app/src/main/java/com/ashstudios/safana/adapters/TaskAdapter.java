@@ -25,6 +25,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
         this.taskModelArrayList = taskModelArrayList;
     }
 
+    public void restoreItem(TaskModel item, int position) {
+        taskModelArrayList.add(position,item);
+        notifyDataSetChanged();
+    }
+
+    public void removeItem(int position) {
+        taskModelArrayList.remove(position);
+        notifyDataSetChanged();
+    }
+
     class MyViewHolder extends RecyclerView.ViewHolder {
         private ImageView imageView;
         private TextView name;
@@ -57,5 +67,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     @Override
     public int getItemCount() {
         return taskModelArrayList.size();
+    }
+
+    public ArrayList<TaskModel> getData() {
+        return taskModelArrayList;
     }
 }
