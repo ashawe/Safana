@@ -16,13 +16,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.activities.SupervisorDashboard;
 import com.ashstudios.safana.adapters.WorkerRVAdapter;
 
 public class WorkerDetailsFragment extends Fragment {
 
     static private WorkerDetailsViewModel workerDetailsViewModel;
     static RecyclerView recyclerView;
-    WorkerRVAdapter workerRVAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,10 +30,11 @@ public class WorkerDetailsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_worker_details, container, false);
 
         recyclerView = root.findViewById(R.id.rc_worker_details);
-        workerRVAdapter = new WorkerRVAdapter(workerDetailsViewModel,getContext());
+        WorkerRVAdapter workerRVAdapter = new WorkerRVAdapter(workerDetailsViewModel,getContext());
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(workerRVAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         return root;
     }
 

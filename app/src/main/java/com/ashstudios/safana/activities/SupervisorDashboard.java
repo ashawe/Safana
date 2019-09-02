@@ -5,6 +5,8 @@ import android.os.Bundle;
 import com.ashstudios.safana.BottomSheetSortFragment;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.adapters.WorkerRVAdapter;
+import com.ashstudios.safana.others.Msg;
+import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,6 +33,7 @@ import android.widget.Adapter;
 public class SupervisorDashboard extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private Bundle workerSortBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,8 @@ public class SupervisorDashboard extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        workerSortBundle = new Bundle();
     }
 
     @Override
@@ -78,17 +83,38 @@ public class SupervisorDashboard extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                View view = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_sort, null);
-
-//                BottomSheetDialog dialog = new BottomSheetDialog(this);
-//                dialog.setContentView(view);
-//                dialog.show();
                 BottomSheetSortFragment bottomSheetFragment = new BottomSheetSortFragment();
+                workerSortBundle = initWorkerBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
+                bottomSheetFragment.setArguments(workerSortBundle);
                 bottomSheetFragment.show(getSupportFragmentManager(), "hello");
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void onWorkerDetailsSortingChanged(Bundle b)
+    {
+        workerSortBundle = (Bundle)b.clone();
+        WorkerDetailsFragment.sort(getBaseContext(),workerSortBundle);
+    }
+
+    private Bundle initWorkerBundle()
+    {
+        if(workerSortBundle.isEmpty())
+        {
+            workerSortBundle.putBoolean("nameChip",false);
+            workerSortBundle.putBoolean("maleChip",true);
+            workerSortBundle.putBoolean("femaleChip",true);
+            workerSortBundle.putBoolean("otherChip",true);
+//          workerSortBundle.putString("role","all");
+//          workerSortBundle.putString("shift","all");
+            return workerSortBundle;
+        }
+        else
+        {
+            return workerSortBundle;
         }
     }
 }

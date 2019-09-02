@@ -51,8 +51,7 @@ public class WorkerRVAdapter extends RecyclerView.Adapter<WorkerRVAdapter.ViewHo
         Picasso.get()
                 .load(mImages.get(position))
                 .noFade()
-                .resize(48,48)
-                .centerCrop()
+                .resizeDimen(R.dimen.profile_photo,R.dimen.profile_photo)
                 .into(holder.circleImageView);
         holder.ll_worker_item.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,7 +24,7 @@ public class WorkerDetailsViewModel extends ViewModel {
 //    "https://i.imgur.com/[0-9a-zA-Z]*.(jpg|png)
 
     private void initData() {
-        imageUrls.add("https://cdn.cnn.com/cnnnext/dam/assets/140929105949-michael-bass-profile-image-super-169.jpg");
+        imageUrls.add("https://i.imgur.com/wnKtRoZ.png");
         workerNames.add("Harsh Saglani");
         workerRoles.add("Developer");
 
@@ -109,14 +109,5 @@ public class WorkerDetailsViewModel extends ViewModel {
         imageUrls.remove(0);
         workerNames.remove(0);
         workerRoles.remove(0);
-
-        imageUrls.remove(1);
-        workerNames.remove(1);
-        workerRoles.remove(1);
-
-
-        imageUrls.remove(2);
-        workerNames.remove(2);
-        workerRoles.remove(2);
     }
 }
