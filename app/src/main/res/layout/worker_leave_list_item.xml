@@ -20,7 +20,7 @@
         android:textColor="@color/dark_gray"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/reason"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -45,17 +45,24 @@
         android:textColor="@color/gray"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/worker_name" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/photographer_profile"
+        app:cardCornerRadius="24dp"
+        android:layout_gravity="center"
+        android:layout_margin="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

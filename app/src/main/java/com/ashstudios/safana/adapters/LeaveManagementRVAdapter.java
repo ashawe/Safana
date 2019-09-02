@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.ashstudios.safana.LeaveModel;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.WorkerModel;
@@ -20,8 +23,6 @@ import com.ashstudios.safana.ui.leave_management.LeaveManagementViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LeaveManagementRVAdapter extends RecyclerView.Adapter<LeaveManagementRVAdapter.ViewHolder>{
 
@@ -68,13 +69,17 @@ public class LeaveManagementRVAdapter extends RecyclerView.Adapter<LeaveManageme
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView circleImageView;
+        ImageView circleImageView;
         TextView name,date,reason;
         ConstraintLayout ll_worker_item;
+        TextDrawable textDrawable;
+        ColorGenerator colorGenerator;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             circleImageView = itemView.findViewById(R.id.profile_image);
+            colorGenerator = ColorGenerator.MATERIAL;
+            textDrawable = TextDrawable.builder().buildRect("H",colorGenerator.getRandomColor());
             name = itemView.findViewById(R.id.worker_name);
             date = itemView.findViewById(R.id.leave_date);
             reason = itemView.findViewById(R.id.reason);

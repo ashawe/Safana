@@ -36,8 +36,8 @@
         tools:layout="@layout/fragment_share" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="com.ashstudios.safana.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_leave_management"
+        android:name="com.ashstudios.safana.ui.leave_management.LeaveManagementFragment"
+        android:label="Leave Management"
+        tools:layout="@layout/fragment_leave_management" />
 </navigation>

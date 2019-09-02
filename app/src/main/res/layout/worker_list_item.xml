@@ -2,16 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="10dp"
     android:background="@color/colorPrimary"
     android:id="@+id/ll_worker_item">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+    <androidx.cardview.widget.CardView
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_gravity="center" />
+        app:cardCornerRadius="24dp"
+        android:layout_gravity="center"
+        android:layout_margin="2dp">
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/worker_name"
