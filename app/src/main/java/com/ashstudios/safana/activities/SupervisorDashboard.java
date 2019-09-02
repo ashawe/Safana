@@ -1,14 +1,12 @@
 package com.ashstudios.safana.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.ashstudios.safana.BottomSheetSortFragment;
+import com.ashstudios.safana.AddEmployeesActivity;
+import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.R;
-import com.ashstudios.safana.adapters.WorkerRVAdapter;
-import com.ashstudios.safana.others.Msg;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
-import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -28,7 +26,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.Adapter;
 
 public class SupervisorDashboard extends AppCompatActivity {
 
@@ -45,8 +42,10 @@ public class SupervisorDashboard extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                Intent generateEmployeeId = new Intent(getBaseContext(), AddEmployeesActivity.class);
+                startActivity(generateEmployeeId);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -11,16 +11,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.LoginActivity"
+        <activity android:name=".AddEmployeesActivity"></activity>
+        <activity
+            android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.SupervisorDashboard"
             android:label="@string/title_activity_supervisor_dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.SplashActivity"
+        <activity
+            android:name=".activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
