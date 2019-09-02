@@ -37,6 +37,9 @@
 
     <style name="ToolbarColoredIcon" parent="AppTheme">
         <item name="android:textColorSecondary">@color/dark_gray</item>
+        <item name="android:tint">@color/dark_gray</item>
+        <item name="android:textColorPrimary">@color/dark_gray</item>
+        <item name="android:textColorHighlight">@color/dark_gray</item>
         <item name="colorControlNormal">@color/dark_gray</item>
     </style>
 

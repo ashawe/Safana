@@ -6,108 +6,45 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.ashstudios.safana.WorkerModel;
+
 import java.util.ArrayList;
 
 public class WorkerDetailsViewModel extends ViewModel {
 
-    private ArrayList<String> imageUrls;
-    private ArrayList<String> workerNames;
-    private ArrayList<String> workerRoles;
+    private ArrayList<WorkerModel> workerModels;
 
     public WorkerDetailsViewModel() {
-        imageUrls = new ArrayList<>();
-        workerNames = new ArrayList<>();
-        workerRoles = new ArrayList<>();
+        workerModels = new ArrayList<>();
         initData();
     }
 
 //    "https://i.imgur.com/[0-9a-zA-Z]*.(jpg|png)
 
     private void initData() {
-        imageUrls.add("https://i.imgur.com/wnKtRoZ.png");
-        workerNames.add("Harsh Saglani");
-        workerRoles.add("Developer");
+        WorkerModel workerModel = new WorkerModel("Harsh Saglani","Developer","https://i.imgur.com/wnKtRoZ.png","emp123");
+        workerModels.add(workerModel);
 
-        imageUrls.add("https://i.imgur.com/mdgMOnb.jpg");
-        workerNames.add("Rohit Suthar");
-        workerRoles.add("Developer");
+        workerModel = new WorkerModel("Harsh Saglani","Developer","https://i.imgur.com/wnKtRoZ.png","emp123");
+        workerModels.add(workerModel);
 
-        imageUrls.add("https://i.imgur.com/FFROZFr.jpg");
-        workerNames.add("John Doe");
-        workerRoles.add("Dev Head");
+        workerModel = new WorkerModel("Rohit Suthar","Developer","https://i.imgur.com/wnKtRoZ.png","emp133");
+        workerModels.add(workerModel);
 
-        imageUrls.add("https://i.imgur.com/rpLiwQv.jpg");
-        workerNames.add("Akshay Kumar");
-        workerRoles.add("Designer");
+        workerModel = new WorkerModel("John Doe","Developer","https://i.imgur.com/wnKtRoZ.png","emp1223");
+        workerModels.add(workerModel);
 
-        imageUrls.add("https://i.imgur.com/QiGPpDO.png");
-        workerNames.add("Carry Minati");
-        workerRoles.add("Designer");
+        workerModel = new WorkerModel("Akshay Kumar","Developer","https://i.imgur.com/wnKtRoZ.png","emp143");
+        workerModels.add(workerModel);
 
-        imageUrls.add("https://i.imgur.com/PrvsefK.png");
-        workerNames.add("Marques Brownlee");
-        workerRoles.add("Video Maker");
-
-        imageUrls.add("https://i.imgur.com/PrvsefK.png");
-        workerNames.add("Dave Lee");
-        workerRoles.add("Lead Architect");
-
-        imageUrls.add("https://i.imgur.com/4m90i4W.png");
-        workerNames.add("Technical Guruji");
-        workerRoles.add("Architect");
-
-        imageUrls.add("https://i.imgur.com/7adiQpr.png");
-        workerNames.add("Unbox Therapy");
-        workerRoles.add("Des Head");
-
-        imageUrls.add("https://i.imgur.com/0mukaGf.png");
-        workerNames.add("Jay Shetty");
-        workerRoles.add("Des Head");
-
-        imageUrls.add("https://i.imgur.com/Dxla907.png");
-        workerNames.add("Tanmay Bhatt");
-        workerRoles.add("Comedian");
-
-        imageUrls.add("https://i.imgur.com/bAAc3Hz.png");
-        workerNames.add("Zakir Khan");
-        workerRoles.add("Comedian");
-
-        imageUrls.add("https://i.imgur.com/wnKtRoZ.png");
-        workerNames.add("Abhish Mathiew");
-        workerRoles.add("Comedian");
-
-        imageUrls.add("https://i.imgur.com/cubyS2T.png");
-        workerNames.add("Ryan Reynolds");
-        workerRoles.add("Actor");
+        workerModel = new WorkerModel("Carry Minati","Developer","https://i.imgur.com/wnKtRoZ.png","emp143");
     }
 
-    public ArrayList<String> getImageUrls() {
-        return imageUrls;
-    }
-
-    public void setImageUrls(ArrayList<String> imageUrls) {
-        this.imageUrls = imageUrls;
-    }
-
-    public ArrayList<String> getWorkerNames() {
-        return workerNames;
-    }
-
-    public void setWorkerNames(ArrayList<String> workerNames) {
-        this.workerNames = workerNames;
-    }
-
-    public ArrayList<String> getWorkerRoles() {
-        return workerRoles;
-    }
-
-    public void setWorkerRoles(ArrayList<String> workerRoles) {
-        this.workerRoles = workerRoles;
+    public ArrayList<WorkerModel> getWorkerModels() {
+        return workerModels;
     }
 
     public void sort(Bundle b) {
-        imageUrls.remove(0);
-        workerNames.remove(0);
-        workerRoles.remove(0);
+        workerModels.remove(0);
     }
 }

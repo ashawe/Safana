@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.WorkerModel;
 import com.ashstudios.safana.activities.LoginActivity;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.squareup.picasso.Picasso;
@@ -24,16 +25,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class WorkerRVAdapter extends RecyclerView.Adapter<WorkerRVAdapter.ViewHolder> {
 
-    private ArrayList<String> mName;
-    private ArrayList<String> mRoles;
-    private ArrayList<String> mImages;
-
+    private ArrayList<WorkerModel> workerModels;
     private Context mContext;
 
     public WorkerRVAdapter(WorkerDetailsViewModel workerDetailsViewModel, Context mContext) {
-        this.mName = workerDetailsViewModel.getWorkerNames();
-        this.mRoles = workerDetailsViewModel.getWorkerRoles();
-        this.mImages = workerDetailsViewModel.getImageUrls();
+        this.workerModels = workerDetailsViewModel.getWorkerModels();
         this.mContext = mContext;
     }
 
@@ -46,10 +42,11 @@ public class WorkerRVAdapter extends RecyclerView.Adapter<WorkerRVAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.name.setText(mName.get(position));
-        holder.role.setText(mRoles.get(position));
+        WorkerModel workerModel = workerModels.get(position);
+        holder.name.setText(workerModel.getName());
+        holder.role.setText(workerModel.getRole());
         Picasso.get()
-                .load(mImages.get(position))
+                .load(workerModel.getImgUrl())
                 .noFade()
                 .resizeDimen(R.dimen.profile_photo,R.dimen.profile_photo)
                 .into(holder.circleImageView);
@@ -65,7 +62,7 @@ public class WorkerRVAdapter extends RecyclerView.Adapter<WorkerRVAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return mName.size();
+        return workerModels.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
