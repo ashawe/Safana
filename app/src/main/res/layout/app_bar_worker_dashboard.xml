@@ -31,7 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:backgroundTint="@color/dark_gray"
+        app:borderWidth="0dp"
+        android:tint="@color/colorPrimary"
+        android:src="@android:drawable/ic_input_add"/>
 
     <include layout="@layout/content_worker_dashboard" />
 
