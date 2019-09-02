@@ -22,6 +22,7 @@ import com.ashstudios.safana.R;
 import com.ashstudios.safana.adapters.TaskAdapter;
 import com.ashstudios.safana.models.TaskModel;
 import com.ashstudios.safana.others.SwipeToDeleteCallback;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MyTasksFragment extends Fragment {
@@ -44,6 +45,15 @@ public class MyTasksFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
         constraintLayout = root.findViewById(R.id.constraint_layout);
         recyclerView = root.findViewById(R.id.rv_tasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -65,7 +75,6 @@ public class MyTasksFragment extends Fragment {
                 final TaskModel item = taskAdapter.getData().get(position);
 
                 taskAdapter.removeItem(position);
-
 
                 Snackbar snackbar = Snackbar
                         .make(constraintLayout, "Task is moved to the completed list.", Snackbar.LENGTH_LONG);
