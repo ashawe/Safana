@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_worker">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_worker"
         android:name="com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment"
         android:label="@string/menu_worker_details"
         tools:layout="@layout/fragment_worker_details" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.ashstudios.safana.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_project_details"
+        android:name="com.ashstudios.safana.ui.project__details.ProjectDetailsFragment"
+        android:label="@string/menu_project_details"
+        tools:layout="@layout/fragment_project_details" />
 
     <fragment
         android:id="@+id/nav_slideshow"
