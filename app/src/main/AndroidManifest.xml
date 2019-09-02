@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AddEmployeesActivity"></activity>
+        <activity android:name=".NewProjectSelectWorkerActivity"></activity>
+        <activity android:name=".activities.NewProjectActivity" />
+        <activity android:name=".activities.AddEmployeesActivity" />
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
