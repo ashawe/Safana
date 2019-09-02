@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.WorkerModel;
 import com.ashstudios.safana.activities.LoginActivity;
+import com.ashstudios.safana.activities.WorkerProfileActivity;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -53,7 +54,7 @@ public class WorkerRVAdapter extends RecyclerView.Adapter<WorkerRVAdapter.ViewHo
         holder.ll_worker_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, LoginActivity.class);
+                Intent intent = new Intent(mContext, WorkerProfileActivity.class);
                 mContext.startActivity(intent);
 
             }

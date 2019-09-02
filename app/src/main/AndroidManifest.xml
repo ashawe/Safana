@@ -11,14 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".WorkerProfileActivity"></activity>
+        <activity android:name=".activities.WorkerProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewProjectSelectWorkerActivity"
+            android:name=".activities.NewProjectSelectWorkerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.NewProjectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.AddEmployeesActivity" />
+        <activity android:name=".activities.AddEmployeesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />

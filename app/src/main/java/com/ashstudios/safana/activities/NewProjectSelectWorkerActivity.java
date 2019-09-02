@@ -1,18 +1,16 @@
-package com.ashstudios.safana;
+package com.ashstudios.safana.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import com.ashstudios.safana.adapters.WorkerRVAdapter;
+import com.ashstudios.safana.R;
+import com.ashstudios.safana.adapters.WorkerRVSelectAdapter;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 
 public class NewProjectSelectWorkerActivity extends AppCompatActivity {
