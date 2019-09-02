@@ -19,7 +19,9 @@
             app:titleTextColor="@color/dark_gray"
             app:subtitleTextColor="@color/dark_gray"
             android:theme="@style/ToolbarTheme"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

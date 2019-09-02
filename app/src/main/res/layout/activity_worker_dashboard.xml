@@ -18,8 +18,12 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/dark_gray"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_worker_dashboard"
-        app:menu="@menu/activity_worker_dashboard_drawer" />
+        app:itemTextColor="@android:color/white"
+        app:menu="@menu/activity_worker_dashboard_drawer">
+
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -3,35 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_tasks">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.ashstudios.safana.ui.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_tasks"
+        android:name="com.ashstudios.safana.ui.mytasks.MyTasksFragment"
+        tools:layout="@layout/fragment_mytasks" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.ashstudios.safana.ui.gallery.GalleryFragment"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_calendar"
+        android:name="com.ashstudios.safana.ui.calendar.CalendarFragment"
+        tools:layout="@layout/fragment_calendar" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.ashstudios.safana.ui.slideshow.SlideshowFragment"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_search"
+        android:name="com.ashstudios.safana.ui.search.SearchFragment"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.ashstudios.safana.ui.tools.ToolsFragment"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_leave"
+        android:name="com.ashstudios.safana.ui.leave.LeaveFragment"
+        tools:layout="@layout/fragment_leave" />
 
     <fragment
-        android:id="@+id/nav_share"
-        android:name="com.ashstudios.safana.ui.share.ShareFragment"
-        tools:layout="@layout/fragment_share" />
+        android:id="@+id/nav_allowance"
+        android:name="com.ashstudios.safana.ui.allowances.AllowancesFragment"
+        tools:layout="@layout/fragment_allowances" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="com.ashstudios.safana.ui.send.SendFragment"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_project_status"
+        android:name="com.ashstudios.safana.ui.projectstatus.ProjectStatusFragment"
+        tools:layout="@layout/fragment_project_status" />
+
 </navigation>

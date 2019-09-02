@@ -1,4 +1,4 @@
-package com.ashstudios.safana.ui.share;
+package com.ashstudios.safana.ui.allowances;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,15 +14,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.ashstudios.safana.R;
 
-public class ShareFragment extends Fragment {
+public class AllowancesFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private AllowancesViewModel shareViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
+                ViewModelProviders.of(this).get(AllowancesViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_allowances, container, false);
         final TextView textView = root.findViewById(R.id.text_share);
         shareViewModel.getText().observe(this, new Observer<String>() {
             @Override

@@ -1,4 +1,4 @@
-package com.ashstudios.safana.ui.gallery;
+package com.ashstudios.safana.ui.leave;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.ashstudios.safana.R;
 
-public class GalleryFragment extends Fragment {
+public class LeaveFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private LeaveViewModel toolsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_gallery, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(this, new Observer<String>() {
+        toolsViewModel =
+                ViewModelProviders.of(this).get(LeaveViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_leave, container, false);
+        final TextView textView = root.findViewById(R.id.text_tools);
+        toolsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
