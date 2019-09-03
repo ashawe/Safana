@@ -27,4 +27,5 @@
     <string name="menu_project_details">Project details</string>
     <string name="allowance_management">Allowance Management</string>
     <string name="leave_management">Leave Management</string>
+    <string name="go_to_calender">Go to Calender</string>
 </resources>
