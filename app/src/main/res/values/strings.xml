@@ -41,4 +41,11 @@
         12. Unauthorized disclosure of business secrets or confidential information.\n\n
         13. Falsifying company records or reports, including one time records or the time records of another employee.\n\n
     </string>
+    <string name="food">http://iamrohitsuthar.000webhostapp.com/android/safana/food.png</string>
+    <string name="laptop">http://iamrohitsuthar.000webhostapp.com/android/safana/laptop.png</string>
+    <string name="building">http://iamrohitsuthar.000webhostapp.com/android/safana/building.png</string>
+    <string name="car">http://iamrohitsuthar.000webhostapp.com/android/safana/car.png</string>
+    <string name="insurence">http://iamrohitsuthar.000webhostapp.com/android/safana/insurence.png</string>
+    <string name="default_icon">http://iamrohitsuthar.000webhostapp.com/android/safana/list.png</string>
+
 </resources>
