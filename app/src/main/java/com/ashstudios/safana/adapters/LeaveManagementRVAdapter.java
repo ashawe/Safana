@@ -36,6 +36,10 @@ public class LeaveManagementRVAdapter extends RecyclerView.Adapter<LeaveManageme
     private ArrayList<LeaveModel> leaveModels;
     private Context mContext;
 
+    public ArrayList<LeaveModel> getLeaveModels() {
+        return leaveModels;
+    }
+
     public LeaveManagementRVAdapter(LeaveManagementViewModel leaveManagementViewModel, Context mContext) {
         this.leaveModels = leaveManagementViewModel.getLeaveModels();
         this.mContext = mContext;
@@ -99,6 +103,16 @@ public class LeaveManagementRVAdapter extends RecyclerView.Adapter<LeaveManageme
         return leaveModels.size();
     }
 
+    public void removeItem(int position) {
+        leaveModels.remove(position);
+        notifyDataSetChanged();
+    }
+
+    public void restoreItem(LeaveModel item, int position) {
+        leaveModels.add(position,item);
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView circleImageView;
@@ -118,4 +132,5 @@ public class LeaveManagementRVAdapter extends RecyclerView.Adapter<LeaveManageme
             ll_worker_item = itemView.findViewById(R.id.ll_worker_leave_item);
         }
     }
+
 }
