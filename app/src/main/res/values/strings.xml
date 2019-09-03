@@ -2,6 +2,7 @@
     <string name="app_name">Safana</string>
     <string name="tagline">Think Big! Think Safana!</string>
     <string name="title_activity_worker_dashboard">WorkerDashboardActivity</string>
+    <string name="title_activity_supervisor_dashboard">SupervisorDashboard</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -48,4 +49,25 @@
     <string name="insurence">https://i.imgur.com/sk5beiQ.png</string>
     <string name="default_icon">https://i.imgur.com/WzTVSsM.png</string>
 
+
+    <string name="menu_worker_details">Worker Details</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="worker_details">Worker Details</string>
+    <string name="dummy_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ante nisl, dictum bibendum nisi sit amet, faucibus consequat justo. Nunc mollis arcu eget eros pharetra ullamcorper. Vivamus gravida lobortis dignissim. Etiam id ultricies urna. Donec suscipit diam vitae nisl efficitur, id aliquam augue volutpat. Proin placerat arcu non mi pulvinar sagittis. Vestibulum mollis scelerisque odio aliquam dictum. Vivamus semper erat enim, vitae hendrerit magna posuere id. Aliquam tincidunt diam quis tellus eleifend imperdiet a fringilla enim. Curabitur congue ex lacus, ac congue lacus suscipit a.</string>
+    <string name="dummy_line">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="dummy_two_lines">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ante nisl, dictum bibendum nisi sit amet, faucibus consequat justo.</string>
+    <string name="dummy_short_name">John Doe</string>
+    <string name="dummy_long_name">Robert Downey JR.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_project_details">Project details</string>
+    <string name="allowance_management">Allowance Management</string>
+    <string name="leave_management">Leave Management</string>
+    <string name="go_to_calender">Go to Calender</string>
+    <string name="tasks">Tasks</string>
 </resources>

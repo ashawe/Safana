@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAllowanceActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ToolbarColoredIcon"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toTopOf="@+id/toolbar1">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/title_create_allowances"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Create Allowance"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_allowance_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name of Allowance"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/title_create_allowances"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/et_allowance_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type ( food / travel )"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_allowance_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/et_allowance_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Amount"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_allowance_type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <EditText
+                android:id="@+id/et_allowance_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Default Duration"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_allowance_amount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <Button
+                android:id="@+id/btn_create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:padding="0dp"
+                android:text="Create"
+                app:layout_constraintTop_toBottomOf="@+id/et_allowance_duration"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

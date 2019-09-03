@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_worker">
+
+    <fragment
+        android:id="@+id/nav_worker"
+        android:name="com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment"
+        android:label="@string/menu_worker_details"
+        tools:layout="@layout/fragment_worker_details" />
+
+    <fragment
+        android:id="@+id/nav_project_details"
+        android:name="com.ashstudios.safana.ui.project__details.ProjectDetailsFragment"
+        android:label="@string/menu_project_details"
+        tools:layout="@layout/fragment_project_details" />
+
+    <fragment
+        android:id="@+id/nav_allowance_management"
+        android:name="com.ashstudios.safana.ui.allowance_management.AllowanceManagementFragment"
+        android:label="@string/allowance_management"
+        tools:layout="@layout/fragment_allowance_management" />
+
+    <fragment
+        android:id="@+id/nav_tasks"
+        android:name="com.ashstudios.safana.ui.tasks.TasksFragment"
+        android:label="Tasks"
+        tools:layout="@layout/fragment_tasks" />
+
+    <fragment
+        android:id="@+id/nav_leave_management"
+        android:name="com.ashstudios.safana.ui.leave_management.LeaveManagementFragment"
+        android:label="Leave Management"
+        tools:layout="@layout/fragment_leave_management" />
+</navigation>
