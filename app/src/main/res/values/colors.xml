@@ -6,4 +6,6 @@
     <color name="background_gray">#80E7E7E7</color>
     <color name="gray">#5c636e</color>
     <color name="dark_gray">#393e46</color>
+    <color name="edit_text_stroke_color">#D3D0D0</color>
+    <color name="MyThemecolorPrimaryDark">#B18004</color>
 </resources>
