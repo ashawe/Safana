@@ -24,10 +24,10 @@
         tools:layout="@layout/fragment_allowance_management" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.ashstudios.safana.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        android:id="@+id/nav_tasks"
+        android:name="com.ashstudios.safana.ui.tasks.TasksFragment"
+        android:label="Tasks"
+        tools:layout="@layout/fragment_tasks" />
 
     <fragment
         android:id="@+id/nav_leave_management"

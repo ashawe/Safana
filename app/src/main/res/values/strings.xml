@@ -28,4 +28,5 @@
     <string name="allowance_management">Allowance Management</string>
     <string name="leave_management">Leave Management</string>
     <string name="go_to_calender">Go to Calender</string>
+    <string name="tasks">Tasks</string>
 </resources>

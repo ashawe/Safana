@@ -1,4 +1,4 @@
-package com.ashstudios.safana.ui.tools;
+package com.ashstudios.safana.ui.tasks;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,15 +14,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.ashstudios.safana.R;
 
-public class ToolsFragment extends Fragment {
+public class TasksFragment extends Fragment {
 
-    private ToolsViewModel toolsViewModel;
+    private TasksViewModel toolsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         toolsViewModel =
-                ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+                ViewModelProviders.of(this).get(TasksViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_tasks, container, false);
         final TextView textView = root.findViewById(R.id.text_tools);
         toolsViewModel.getText().observe(this, new Observer<String>() {
             @Override

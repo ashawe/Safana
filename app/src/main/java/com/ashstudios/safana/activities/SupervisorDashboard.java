@@ -40,7 +40,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_worker, R.id.nav_project_details, R.id.nav_allowance_management,
-                R.id.nav_tools, R.id.nav_leave_management)
+                R.id.nav_tasks, R.id.nav_leave_management)
                 .setDrawerLayout(drawer)
                 .build();
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
