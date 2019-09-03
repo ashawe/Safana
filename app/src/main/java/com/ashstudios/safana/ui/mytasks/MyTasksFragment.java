@@ -1,5 +1,6 @@
 package com.ashstudios.safana.ui.mytasks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.activities.CreateTaskActivity;
 import com.ashstudios.safana.adapters.TaskAdapter;
 import com.ashstudios.safana.models.TaskModel;
 import com.ashstudios.safana.others.SwipeToDeleteCallback;
@@ -45,8 +47,8 @@ public class MyTasksFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getActivity(), CreateTaskActivity.class);
+                startActivity(intent);
             }
         });
 
