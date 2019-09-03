@@ -71,4 +71,6 @@
     <string name="tasks">Tasks</string>
     <string name="enter_your_id">Enter your id</string>
     <string name="enter_your_password">Enter your password</string>
+    <string name="project_status">Project Status</string>
+    <string name="_70">70%</string>
 </resources>
