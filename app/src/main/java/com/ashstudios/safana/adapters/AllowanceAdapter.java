@@ -49,6 +49,7 @@ public class AllowanceAdapter extends RecyclerView.Adapter<AllowanceAdapter.MyVi
         AllowanceModel allowanceModel = allowanceModelArrayList.get(position);
         //holder.imageView.setImageResource(Integer.parseInt(allowanceModel.getUrl()));
         holder.imageView.setPadding(10,10,10,10);
+        Picasso.get().setLoggingEnabled(true);
         Picasso.get().load(allowanceModel.getUrl()).centerInside().fit().into(holder.imageView);
         holder.name.setTypeface(holder.name.getTypeface(), Typeface.BOLD);
         holder.name.setText(allowanceModel.getName());

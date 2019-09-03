@@ -22,7 +22,7 @@
     <string name="from">from</string>
     <string name="request">REQUEST</string>
     <string name="apply_for_leave_title">Apply For Leave</string>
-    <string name="allowances_list">Allowances List</string>
+    <string name="allowances_list">List of Allowances</string>
     <string name="laws">Laws</string>
     <string name="worker_laws">Worker Laws</string>
     <string name="worker_laws_rules">
@@ -41,11 +41,11 @@
         12. Unauthorized disclosure of business secrets or confidential information.\n\n
         13. Falsifying company records or reports, including one time records or the time records of another employee.\n\n
     </string>
-    <string name="food">http://iamrohitsuthar.000webhostapp.com/android/safana/food.png</string>
-    <string name="laptop">http://iamrohitsuthar.000webhostapp.com/android/safana/laptop.png</string>
-    <string name="building">http://iamrohitsuthar.000webhostapp.com/android/safana/building.png</string>
-    <string name="car">http://iamrohitsuthar.000webhostapp.com/android/safana/car.png</string>
-    <string name="insurence">http://iamrohitsuthar.000webhostapp.com/android/safana/insurence.png</string>
-    <string name="default_icon">http://iamrohitsuthar.000webhostapp.com/android/safana/list.png</string>
+    <string name="food">https://i.imgur.com/FGxmtbB.png</string>
+    <string name="laptop">https://i.imgur.com/PmUZyZj.png</string>
+    <string name="building">https://i.imgur.com/JgxWkvR.png</string>
+    <string name="car">https://i.imgur.com/81EuPE5.png</string>
+    <string name="insurence">https://i.imgur.com/sk5beiQ.png</string>
+    <string name="default_icon">https://i.imgur.com/WzTVSsM.png</string>
 
 </resources>
