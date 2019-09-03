@@ -9,5 +9,5 @@
     <color name="success">#00FF00</color>
     <color name="failure">#FF0000</color>
     <color name="warning">#f8b500</color>
-    <color name="wdf">#047704</color>
+    <color name="blue">#0000dd</color>
 </resources>

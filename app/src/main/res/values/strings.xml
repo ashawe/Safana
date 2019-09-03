@@ -15,7 +15,30 @@
     <string name="search">Search</string>
     <string name="allowances">Allowances</string>
     <string name="current_project">Current Project</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="extra_quote">Extra quote</string>
+    <string name="reason_for_leave">Reason for leave</string>
+    <string name="to">to</string>
+    <string name="from">from</string>
+    <string name="request">REQUEST</string>
+    <string name="apply_for_leave_title">Apply For Leave</string>
+    <string name="allowances_list">Allowances List</string>
+    <string name="laws">Laws</string>
+    <string name="worker_laws">Worker Laws</string>
+    <string name="worker_laws_rules">
+        Theft or inappropriate removal or possession of company property or the property of a fellow employee. \n
+        Willful destruction of company property or the property of a fellow employee. \n
+        Working under the influence of alcohol or illegal drugs. \n
+        Possession, distribution, sale, transfer or use of alcohol or illegal drugs in the workplace, while on duty or while operating employer-owned vehicles or equipment. \n
+        Fighting or threatening violence in the workplace. \n
+        Sexual or other harassment. \n
+        Using excessively abusive, threatening or obscene language. \n
+        Using intimidation tactics and making threats. \n
+        Sabotaging another work. \n
+        Making malicious, false and harmful statements about others. \n
+        Publicly disclosing another private information. \n
+        Possession of dangerous or unauthorized materials, such as explosives or firearms, in the workplace.\n
+        Unauthorized disclosure of business secrets or confidential information. \n
+        Falsifying company records or reports, including one time records or the time records of another employee. \n
+    </string>
 </resources>
