@@ -1,4 +1,4 @@
-package com.ashstudios.safana;
+package com.ashstudios.safana.activities;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.ashstudios.safana.R;
 
 public class CreateAllowanceActivity extends AppCompatActivity {
 

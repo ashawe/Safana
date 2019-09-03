@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.ashstudios.safana.R;
-import com.ashstudios.safana.WorkerModel;
+import com.ashstudios.safana.models.WorkerModel;
 import com.ashstudios.safana.activities.WorkerProfileActivity;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.squareup.picasso.Picasso;

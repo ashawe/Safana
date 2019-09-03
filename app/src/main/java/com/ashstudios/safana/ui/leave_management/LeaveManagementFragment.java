@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ashstudios.safana.LeaveModel;
+import com.ashstudios.safana.models.LeaveModel;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.adapters.LeaveManagementRVAdapter;
 import com.ashstudios.safana.others.SwipeToDeleteCallback;

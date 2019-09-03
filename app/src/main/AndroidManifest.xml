@@ -20,7 +20,7 @@
             android:name=".activities.WorkerDashboardActivity"
             android:label="Safana"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CreateAllowanceActivity"
+        <activity android:name=".activities.CreateAllowanceActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleInstance" />
         <activity

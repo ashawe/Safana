@@ -16,7 +16,6 @@
     <string name="search">Search</string>
     <string name="allowances">Allowances</string>
     <string name="current_project">Current Project</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="extra_quote">Extra quote</string>
     <string name="reason_for_leave">Reason for leave</string>
     <string name="to">to</string>
@@ -70,4 +69,6 @@
     <string name="leave_management">Leave Management</string>
     <string name="go_to_calender">Go to Calender</string>
     <string name="tasks">Tasks</string>
+    <string name="enter_your_id">Enter your id</string>
+    <string name="enter_your_password">Enter your password</string>
 </resources>

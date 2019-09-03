@@ -1,4 +1,4 @@
-package com.ashstudios.safana;
+package com.ashstudios.safana.models;
 
 public class WorkerModel {
     String name,role,imgUrl,emp_id;

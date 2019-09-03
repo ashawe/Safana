@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.lifecycle.ViewModel;
 
-import com.ashstudios.safana.LeaveModel;
+import com.ashstudios.safana.models.LeaveModel;
 
 import java.util.ArrayList;
 

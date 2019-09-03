@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.ashstudios.safana.CreateAllowanceActivity;
+import com.ashstudios.safana.activities.CreateAllowanceActivity;
 import com.ashstudios.safana.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;

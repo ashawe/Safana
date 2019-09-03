@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.lifecycle.ViewModel;
 
-import com.ashstudios.safana.WorkerModel;
+import com.ashstudios.safana.models.WorkerModel;
 
 import java.util.ArrayList;
 

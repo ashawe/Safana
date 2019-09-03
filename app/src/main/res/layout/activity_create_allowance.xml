@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAllowanceActivity">
+    tools:context=".activities.CreateAllowanceActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolbar1"

@@ -1,4 +1,4 @@
-package com.ashstudios.safana;
+package com.ashstudios.safana.models;
 
 public class LeaveModel {
     String name;

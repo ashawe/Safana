@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
-import com.ashstudios.safana.LeaveModel;
+import com.ashstudios.safana.models.LeaveModel;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.ui.leave_management.LeaveManagementViewModel;
 import com.squareup.picasso.Picasso;

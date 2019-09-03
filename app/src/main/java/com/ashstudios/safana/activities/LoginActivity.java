@@ -1,5 +1,10 @@
 package com.ashstudios.safana.activities;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,12 +15,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.ashstudios.safana.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editText,editText1;
-    private Context context;
+    private
+
+    Context context;
+    Intent intent;
     private Boolean isSwipe = false;
     private ConstraintLayout constraintLayout;
     @SuppressLint("ClickableViewAccessibility")
@@ -51,7 +60,17 @@ public class LoginActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     if((motionEvent.getRawX() >= (editText1.getRight() - editText1.getCompoundDrawables()[2].getBounds().width() - 20)) && editText1.getText().length() != 10) {
-                        Toast.makeText(context, "Correct!", Toast.LENGTH_SHORT).show();
+                        if( editText.getText().toString().equals("Emp123") && editText1.getText().toString().equals("emp123") )
+                        {
+                            intent = new Intent(getBaseContext(),WorkerDashboardActivity.class);
+                            startActivity(intent);
+                        }
+                        else if( editText.getText().toString().equals("Sup123") && editText1.getText().toString().equals("sup123") ) {
+                            intent = new Intent(getBaseContext(), SupervisorDashboard.class);
+                            startActivity(intent);
+                        }
+                        else
+                            Toast.makeText(context, "Wrong ID or password", Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 }
