@@ -18,6 +18,7 @@
     <string name="worker_details">Worker Details</string>
     <string name="dummy_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ante nisl, dictum bibendum nisi sit amet, faucibus consequat justo. Nunc mollis arcu eget eros pharetra ullamcorper. Vivamus gravida lobortis dignissim. Etiam id ultricies urna. Donec suscipit diam vitae nisl efficitur, id aliquam augue volutpat. Proin placerat arcu non mi pulvinar sagittis. Vestibulum mollis scelerisque odio aliquam dictum. Vivamus semper erat enim, vitae hendrerit magna posuere id. Aliquam tincidunt diam quis tellus eleifend imperdiet a fringilla enim. Curabitur congue ex lacus, ac congue lacus suscipit a.</string>
     <string name="dummy_line">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="dummy_two_lines">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ante nisl, dictum bibendum nisi sit amet, faucibus consequat justo.</string>
     <string name="dummy_short_name">John Doe</string>
     <string name="dummy_long_name">Robert Downey JR.</string>
 

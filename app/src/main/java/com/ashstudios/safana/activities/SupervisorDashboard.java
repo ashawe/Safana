@@ -3,9 +3,11 @@ package com.ashstudios.safana.activities;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.ashstudios.safana.BottomSheetSortLeaveFragment;
 import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.others.Msg;
+import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,6 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -37,6 +40,9 @@ public class SupervisorDashboard extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Bundle workerSortBundle;
+    private Bundle leaveSortBundle;
+    private MenuItem menuItem;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +52,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        final NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -58,6 +64,9 @@ public class SupervisorDashboard extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         workerSortBundle = new Bundle();
+        leaveSortBundle = new Bundle();
+
+        menuItem = navigationView.getCheckedItem();
     }
 
     @Override
@@ -78,10 +87,20 @@ public class SupervisorDashboard extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                BottomSheetSortFragment bottomSheetFragment = new BottomSheetSortFragment();
-                workerSortBundle = initWorkerBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
-                bottomSheetFragment.setArguments(workerSortBundle);
-                bottomSheetFragment.show(getSupportFragmentManager(), "hello");
+                if(navigationView.getMenu().findItem(R.id.nav_worker).isChecked())
+                {
+                    BottomSheetSortFragment bottomSheetFragment = new BottomSheetSortFragment();
+                    workerSortBundle = initWorkerBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
+                    bottomSheetFragment.setArguments(workerSortBundle);
+                    bottomSheetFragment.show(getSupportFragmentManager(), "hello");
+                }
+                else if (navigationView.getMenu().findItem(R.id.nav_leave_management).isChecked())
+                {
+                    BottomSheetSortLeaveFragment bottomSheetSortLeaveFragment = new BottomSheetSortLeaveFragment();
+                    leaveSortBundle = initLeaveSortBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
+                    bottomSheetSortLeaveFragment.setArguments(leaveSortBundle);
+                    bottomSheetSortLeaveFragment.show(getSupportFragmentManager(), "hello");
+                }
                 return true;
 
             default:
@@ -93,6 +112,12 @@ public class SupervisorDashboard extends AppCompatActivity {
     {
         workerSortBundle = (Bundle)b.clone();
         WorkerDetailsFragment.sort(getBaseContext(),workerSortBundle);
+    }
+
+    public void onLeaveSortingChanged(Bundle b)
+    {
+        leaveSortBundle = (Bundle)b.clone();
+        LeaveManagementFragment.sort(getBaseContext(),leaveSortBundle);
     }
 
     private Bundle initWorkerBundle()
@@ -110,6 +135,25 @@ public class SupervisorDashboard extends AppCompatActivity {
         else
         {
             return workerSortBundle;
+        }
+    }
+
+    private Bundle initLeaveSortBundle()
+    {
+        if(leaveSortBundle.isEmpty())
+        {
+            leaveSortBundle.putBoolean("nameChip",false);
+            leaveSortBundle.putBoolean("dateChip",false);
+            leaveSortBundle.putBoolean("maleChip",true);
+            leaveSortBundle.putBoolean("femaleChip",true);
+            leaveSortBundle.putBoolean("otherChip",true);
+//          workerSortBundle.putString("role","all");
+//          workerSortBundle.putString("shift","all");
+            return leaveSortBundle;
+        }
+        else
+        {
+            return leaveSortBundle;
         }
     }
 }

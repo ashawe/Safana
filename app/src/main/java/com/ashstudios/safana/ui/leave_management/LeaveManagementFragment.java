@@ -37,7 +37,7 @@ public class LeaveManagementFragment extends Fragment {
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(leaveManagementRVAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        getActivity().findViewById(R.layout.fragment_bottom_sheet_sort);
         return root;
     }
 

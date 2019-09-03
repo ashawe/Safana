@@ -1,15 +1,22 @@
 package com.ashstudios.safana.adapters;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -54,10 +61,35 @@ public class LeaveManagementRVAdapter extends RecyclerView.Adapter<LeaveManageme
                 .into(holder.circleImageView);
         holder.ll_worker_item.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, WorkerProfileActivity.class);
-                mContext.startActivity(intent);
+            public void onClick(final View v) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+//                builder.setTitle("Simple Alert");
+//                builder.setMessage("We have a message");
+//                builder.setPositiveButton("OK",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                Toast.makeText(v.getContext(),
+//                                        "OK was clicked",
+//                                        Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
+//                builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        Toast.makeText(v.getContext(),
+//                                android.R.string.no, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                builder.setCancelable(false);
+//                builder.show();
 
+                final AlertDialog alertDialog = new AlertDialog.Builder(v.getContext()).create(); //Read Update
+
+                final View view1 = LayoutInflater.from(v.getContext()).inflate(R.layout.leave_management_dialog,null);
+
+                alertDialog.setView(view1);
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                alertDialog.show();
             }
         });
     }
