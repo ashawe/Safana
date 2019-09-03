@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activities.CreateTaskActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/activity_custom"/>
         <activity
             android:name=".activities.WorkerDashboardActivity"
             android:label="Safana"
