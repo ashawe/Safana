@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.activities.CreateTaskActivity;
+import com.ashstudios.safana.adapters.SupervisorTaskAdapter;
 import com.ashstudios.safana.adapters.TaskAdapter;
 import com.ashstudios.safana.models.TaskModel;
 import com.ashstudios.safana.others.SwipeToDeleteCallback;
@@ -27,7 +28,7 @@ public class MyTasksFragment extends Fragment {
 
     private MyTasksViewModel homeViewModel;
     private RecyclerView recyclerView;
-    private TaskAdapter taskAdapter;
+    private SupervisorTaskAdapter taskAdapter;
     private ConstraintLayout constraintLayout;
     private Boolean isUndo = false;
 
@@ -58,7 +59,7 @@ public class MyTasksFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         //set the adapter
-        taskAdapter = new TaskAdapter(getActivity(),homeViewModel.getArrayListMutableLiveData());
+        taskAdapter = new SupervisorTaskAdapter(getActivity(),homeViewModel.getArrayListMutableLiveData());
         recyclerView.setAdapter(taskAdapter);
         enableSwipeToCompleteAndUndo();
         return root;
