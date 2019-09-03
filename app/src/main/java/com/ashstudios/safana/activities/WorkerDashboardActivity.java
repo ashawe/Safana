@@ -1,5 +1,6 @@
 package com.ashstudios.safana.activities;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -42,6 +43,13 @@ public class WorkerDashboardActivity extends AppCompatActivity {
 
         //setting nav header items
         View header = navigationView.getHeaderView(0);
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorkerDashboardActivity.this,CompleteWorkerProfileActivity.class);
+                startActivity(intent);
+            }
+        });
         mProfileImage = header.findViewById(R.id.profile_image);
         mTvName = header.findViewById(R.id.nav_name);
         mTvEmail = header.findViewById(R.id.nav_email);

@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/lexenddeca"
                     android:paddingBottom="0dp"
-                    android:text="Rohit Suthar"
+                    android:text="@string/dummy_long_name"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="@color/dark_gray"
@@ -122,7 +122,7 @@
                     android:layout_marginStart="8dp"
                     android:fontFamily="@font/brownbold"
                     android:padding="10dp"
-                    android:text="rohit@suthar.com"
+                    android:text="johndoe@example.com"
                     android:textColor="@color/gray"
                     android:textSize="20sp"
 
