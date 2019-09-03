@@ -1,6 +1,73 @@
 <resources>
     <string name="app_name">Safana</string>
     <string name="tagline">Think Big! Think Safana!</string>
-    <string name="enter_your_id">Enter Your ID</string>
-    <string name="enter_your_password">Enter Your Password</string>
+    <string name="title_activity_worker_dashboard">WorkerDashboardActivity</string>
+    <string name="title_activity_supervisor_dashboard">SupervisorDashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="sorting">sorting</string>
+    <string name="my_tasks">My Tasks</string>
+    <string name="calendar">Calendar</string>
+    <string name="apply_for_leave">Apply for leave</string>
+    <string name="search">Search</string>
+    <string name="allowances">Allowances</string>
+    <string name="current_project">Current Project</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="extra_quote">Extra quote</string>
+    <string name="reason_for_leave">Reason for leave</string>
+    <string name="to">to</string>
+    <string name="from">from</string>
+    <string name="request">REQUEST</string>
+    <string name="apply_for_leave_title">Apply For Leave</string>
+    <string name="allowances_list">List of Allowances</string>
+    <string name="laws">Laws</string>
+    <string name="worker_laws">Worker Laws</string>
+    <string name="worker_laws_rules">
+        1. Theft or inappropriate removal or possession of company property or the property of a fellow employee.\n\n
+        2. Willful destruction of company property or the property of a fellow employee.\n\n
+        3. Working under the influence of alcohol or illegal drugs.\n\n
+        4. Possession, distribution, sale, transfer or use of alcohol or illegal drugs in the workplace, while on duty or while operating employer-owned vehicles or equipment.
+        Fighting or threatening violence in the workplace.\n\n
+        5. Sexual or other harassment.\n\n
+        6. Using excessively abusive, threatening or obscene language.\n\n
+        7. Using intimidation tactics and making threats.\n\n
+        8. Sabotaging another work.\n\n
+        9. Making malicious, false and harmful statements about others.\n\n
+        10. Publicly disclosing another private information.\n\n
+        11. Possession of dangerous or unauthorized materials, such as explosives or firearms, in the workplace.\n\n
+        12. Unauthorized disclosure of business secrets or confidential information.\n\n
+        13. Falsifying company records or reports, including one time records or the time records of another employee.\n\n
+    </string>
+    <string name="food">https://i.imgur.com/FGxmtbB.png</string>
+    <string name="laptop">https://i.imgur.com/PmUZyZj.png</string>
+    <string name="building">https://i.imgur.com/JgxWkvR.png</string>
+    <string name="car">https://i.imgur.com/81EuPE5.png</string>
+    <string name="insurence">https://i.imgur.com/sk5beiQ.png</string>
+    <string name="default_icon">https://i.imgur.com/WzTVSsM.png</string>
+
+
+    <string name="menu_worker_details">Worker Details</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="worker_details">Worker Details</string>
+    <string name="dummy_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ante nisl, dictum bibendum nisi sit amet, faucibus consequat justo. Nunc mollis arcu eget eros pharetra ullamcorper. Vivamus gravida lobortis dignissim. Etiam id ultricies urna. Donec suscipit diam vitae nisl efficitur, id aliquam augue volutpat. Proin placerat arcu non mi pulvinar sagittis. Vestibulum mollis scelerisque odio aliquam dictum. Vivamus semper erat enim, vitae hendrerit magna posuere id. Aliquam tincidunt diam quis tellus eleifend imperdiet a fringilla enim. Curabitur congue ex lacus, ac congue lacus suscipit a.</string>
+    <string name="dummy_line">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="dummy_two_lines">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ante nisl, dictum bibendum nisi sit amet, faucibus consequat justo.</string>
+    <string name="dummy_short_name">John Doe</string>
+    <string name="dummy_long_name">Robert Downey JR.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_project_details">Project details</string>
+    <string name="allowance_management">Allowance Management</string>
+    <string name="leave_management">Leave Management</string>
+    <string name="go_to_calender">Go to Calender</string>
+    <string name="tasks">Tasks</string>
 </resources>

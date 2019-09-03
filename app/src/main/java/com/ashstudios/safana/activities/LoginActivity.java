@@ -1,19 +1,15 @@
 package com.ashstudios.safana.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ashstudios.safana.R;
 

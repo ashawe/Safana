@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort by"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:fontFamily="@font/brownbold"
+        android:textColor="@color/dark_gray"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_sort_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        style="@style/Widget.MaterialComponents.Chip.Choice"
+        app:chipIconEnabled="true"
+        app:chipIcon="@drawable/ic_sort_by_attributes_interface_button_option"
+        android:text="Name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter by"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:fontFamily="@font/brownbold"
+        android:textColor="@color/dark_gray"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="role"
+            android:textSize="24sp"
+            android:padding="10dp"
+            android:textColor="@color/gray"
+            android:layout_marginStart="20dp" />
+        <Spinner
+            android:id="@+id/spinner_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:chipSpacing="20dp">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_filter_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:checked="true"
+            android:text="Male" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_filter_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="Female" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_filter_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:text="Other" />
+    </com.google.android.material.chip.ChipGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shift"
+            android:textSize="24sp"
+            android:padding="10dp"
+            android:textColor="@color/gray"
+            android:layout_marginStart="20dp" />
+        <Spinner
+            android:id="@+id/spinner_shift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/apply_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/colorAccent"
+        android:layout_marginBottom="20dp"
+        android:padding="0dp"
+        android:text="Apply"/>
+</LinearLayout>

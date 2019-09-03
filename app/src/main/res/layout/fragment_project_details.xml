@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/nothing_here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexenddeca"
+        android:layout_margin="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="0dp"
+        android:text="Please Click on the add button to create a new project"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/dark_gray"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ScrollView
+        android:id="@+id/sv_project_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/title_project_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingTop="20dp"
+                android:paddingBottom="0dp"
+                android:text="Project Name Here"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_due_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/brownbold"
+                android:text="due date: dd/mm/yy"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_project_name" />
+
+            <TextView
+                android:id="@+id/tv_num_worker_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingStart="20dp"
+                android:paddingEnd="5dp"
+                android:text="# of workers:"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_due_date" />
+
+            <TextView
+                android:id="@+id/tv_num_worker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingEnd="5dp"
+                android:text="15"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_num_worker_text"
+                app:layout_constraintStart_toEndOf="@+id/tv_num_worker_text" />
+
+            <TextView
+                android:id="@+id/tv_budget_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingStart="20dp"
+                android:paddingEnd="5dp"
+                android:text="Budget:"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_num_worker" />
+
+            <TextView
+                android:id="@+id/tv_budget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingEnd="5dp"
+                android:text="1 CR"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_budget_text"
+                app:layout_constraintStart_toEndOf="@+id/tv_budget_text" />
+
+            <TextView
+                android:id="@+id/tv_start_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingStart="20dp"
+                android:paddingEnd="5dp"
+                android:text="Start Date:"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_budget_text" />
+
+            <TextView
+                android:id="@+id/tv_start_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingEnd="5dp"
+                android:text="12/02/19"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_start_date_text"
+                app:layout_constraintStart_toEndOf="@+id/tv_start_date_text" />
+
+            <TextView
+                android:id="@+id/tv_additional_details_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingStart="20dp"
+                android:paddingEnd="5dp"
+                android:text="Additional Details:"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_start_date_text" />
+
+            <TextView
+                android:id="@+id/tv_additional_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingStart="20dp"
+                android:paddingEnd="5dp"
+                android:text="@string/dummy_line"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_additional_details_text" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_additional_details" />
+
+            <TextView
+                android:id="@+id/progress_bar_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/brownbold"
+                android:paddingEnd="5dp"
+                android:text="60% complete"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_status_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/brownbold"
+                    android:padding="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Status: "
+                    android:textAllCaps="true"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/brownbold"
+                    android:padding="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="On time"
+                    android:layout_marginTop="10dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:borderWidth="0dp"
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        android:backgroundTint="@color/dark_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

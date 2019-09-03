@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/btn_go_to_calender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorAccent"
+        android:padding="0dp"
+        android:text="@string/go_to_calender"
+        app:layout_constraintEnd_toEndOf="@+id/btn_accept"
+        app:layout_constraintStart_toStartOf="@+id/btn_reject"
+        app:layout_constraintTop_toBottomOf="@+id/btn_reject" />
+
+    <Button
+        android:id="@+id/btn_reject"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:padding="0dp"
+        android:text="Reject"
+        app:layout_constraintEnd_toStartOf="@+id/btn_accept"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_num_tasks_text" />
+
+    <Button
+        android:id="@+id/btn_accept"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:padding="0dp"
+        android:text="Accept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_reject"
+        app:layout_constraintTop_toBottomOf="@+id/tv_num_tasks_text" />
+
+    <TextView
+        android:id="@+id/tv_num_tasks_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/brownbold"
+        android:paddingEnd="5dp"
+        android:text="# of tasks in timerange:"
+        android:textAllCaps="true"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_reason" />
+
+    <TextView
+        android:id="@+id/tv_num_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/brownbold"
+        android:paddingTop="0dp"
+        android:text="15"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_num_tasks_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_num_tasks_text" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/brownbold"
+        android:text="11/10/19 to 31/10/19"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_reason_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/brownbold"
+        android:paddingEnd="5dp"
+        android:text="Reason:"
+        android:textAllCaps="true"
+        android:textColor="@color/dark_gray"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_date" />
+
+    <TextView
+        android:id="@+id/tv_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/brownbold"
+        android:paddingTop="0dp"
+        android:text="@string/dummy_two_lines"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_reason_text" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

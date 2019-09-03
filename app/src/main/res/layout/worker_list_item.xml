@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:background="@color/colorPrimary"
+    android:id="@+id/ll_worker_item">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:cardCornerRadius="24dp"
+        android:layout_gravity="center"
+        android:layout_margin="2dp">
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/worker_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textSize="20sp"
+        android:layout_weight="4"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/dark_gray"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/worker_role"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginStart="20dp"
+        android:gravity="end"
+        android:textColor="@color/gray"
+        android:layout_gravity="center" />
+</LinearLayout>
