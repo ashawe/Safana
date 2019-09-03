@@ -26,19 +26,19 @@
     <string name="laws">Laws</string>
     <string name="worker_laws">Worker Laws</string>
     <string name="worker_laws_rules">
-        Theft or inappropriate removal or possession of company property or the property of a fellow employee. \n
-        Willful destruction of company property or the property of a fellow employee. \n
-        Working under the influence of alcohol or illegal drugs. \n
-        Possession, distribution, sale, transfer or use of alcohol or illegal drugs in the workplace, while on duty or while operating employer-owned vehicles or equipment. \n
-        Fighting or threatening violence in the workplace. \n
-        Sexual or other harassment. \n
-        Using excessively abusive, threatening or obscene language. \n
-        Using intimidation tactics and making threats. \n
-        Sabotaging another work. \n
-        Making malicious, false and harmful statements about others. \n
-        Publicly disclosing another private information. \n
-        Possession of dangerous or unauthorized materials, such as explosives or firearms, in the workplace.\n
-        Unauthorized disclosure of business secrets or confidential information. \n
-        Falsifying company records or reports, including one time records or the time records of another employee. \n
+        1. Theft or inappropriate removal or possession of company property or the property of a fellow employee.\n\n
+        2. Willful destruction of company property or the property of a fellow employee.\n\n
+        3. Working under the influence of alcohol or illegal drugs.\n\n
+        4. Possession, distribution, sale, transfer or use of alcohol or illegal drugs in the workplace, while on duty or while operating employer-owned vehicles or equipment.
+        Fighting or threatening violence in the workplace.\n\n
+        5. Sexual or other harassment.\n\n
+        6. Using excessively abusive, threatening or obscene language.\n\n
+        7. Using intimidation tactics and making threats.\n\n
+        8. Sabotaging another work.\n\n
+        9. Making malicious, false and harmful statements about others.\n\n
+        10. Publicly disclosing another private information.\n\n
+        11. Possession of dangerous or unauthorized materials, such as explosives or firearms, in the workplace.\n\n
+        12. Unauthorized disclosure of business secrets or confidential information.\n\n
+        13. Falsifying company records or reports, including one time records or the time records of another employee.\n\n
     </string>
 </resources>

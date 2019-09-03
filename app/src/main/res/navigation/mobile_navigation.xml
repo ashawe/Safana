@@ -35,4 +35,9 @@
         android:name="com.ashstudios.safana.ui.projectstatus.ProjectStatusFragment"
         tools:layout="@layout/fragment_project_status" />
 
+    <fragment
+        android:id="@+id/nav_worker_laws"
+        android:name="com.ashstudios.safana.ui.laws.WorkerLawsFragment"
+        tools:layout="@layout/fragment_worker_laws" />
+
 </navigation>

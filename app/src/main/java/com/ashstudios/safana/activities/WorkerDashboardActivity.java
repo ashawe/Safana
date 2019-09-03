@@ -107,6 +107,11 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         Drawable favoriteIcon4 = DrawableCompat.wrap(favoriteItem4.getIcon());
         DrawableCompat.setTintList(favoriteIcon4, colorSelector1);
         favoriteItem4.setIcon(favoriteIcon4);
+
+        MenuItem favoriteItem5 = navigationView.getMenu().findItem(R.id.nav_worker_laws);
+        Drawable favoriteIcon5 = DrawableCompat.wrap(favoriteItem5.getIcon());
+        DrawableCompat.setTintList(favoriteIcon5, colorSelector1);
+        favoriteItem5.setIcon(favoriteIcon5);
     }
 
     @Override
