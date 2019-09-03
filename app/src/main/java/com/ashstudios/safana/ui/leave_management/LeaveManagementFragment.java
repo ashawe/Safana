@@ -5,14 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,9 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ashstudios.safana.LeaveModel;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.adapters.LeaveManagementRVAdapter;
-import com.ashstudios.safana.adapters.WorkerRVAdapter;
 import com.ashstudios.safana.others.SwipeToDeleteCallback;
-import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
 public class LeaveManagementFragment extends Fragment {

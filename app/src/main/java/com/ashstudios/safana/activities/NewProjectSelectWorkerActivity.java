@@ -1,13 +1,13 @@
 package com.ashstudios.safana.activities;
 
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.adapters.WorkerRVSelectAdapter;

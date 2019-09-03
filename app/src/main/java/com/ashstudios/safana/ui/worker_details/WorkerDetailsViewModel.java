@@ -2,8 +2,6 @@ package com.ashstudios.safana.ui.worker_details;
 
 import android.os.Bundle;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.ashstudios.safana.WorkerModel;

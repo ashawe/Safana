@@ -1,28 +1,23 @@
 package com.ashstudios.safana.activities;
 
 import android.os.Bundle;
-
-import com.ashstudios.safana.Fragments.BottomSheetSortLeaveFragment;
-import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
-import com.ashstudios.safana.R;
-import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
-import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
-
+import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
+import com.ashstudios.safana.Fragments.BottomSheetSortLeaveFragment;
+import com.ashstudios.safana.R;
+import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
+import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
 
 public class SupervisorDashboard extends AppCompatActivity {
 

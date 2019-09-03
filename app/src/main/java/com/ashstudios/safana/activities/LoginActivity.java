@@ -1,8 +1,8 @@
 package com.ashstudios.safana.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ashstudios.safana.R;
 

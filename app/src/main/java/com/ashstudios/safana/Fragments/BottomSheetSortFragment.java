@@ -2,11 +2,6 @@ package com.ashstudios.safana.Fragments;
 
 
 import android.os.Bundle;
-
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +9,10 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 
+import androidx.fragment.app.Fragment;
+
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.activities.SupervisorDashboard;
-import com.ashstudios.safana.others.Msg;
-import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
-import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.chip.Chip;
 
