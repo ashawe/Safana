@@ -1,7 +1,5 @@
 package com.ashstudios.safana.ui.calendar;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.ashstudios.safana.models.TaskModel;

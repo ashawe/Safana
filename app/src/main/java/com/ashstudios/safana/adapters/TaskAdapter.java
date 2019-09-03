@@ -14,6 +14,7 @@ import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.models.TaskModel;
+
 import java.util.ArrayList;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> {
