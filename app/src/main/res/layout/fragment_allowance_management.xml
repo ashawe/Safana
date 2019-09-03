@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/title_grant_allowances"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Grant Allowance"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Spinner
+                android:id="@+id/spinner_allowance_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@id/title_grant_allowances"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/et_emp_id_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Employee id / name"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_allowance_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <ScrollView
+                android:id="@+id/sv_emp_names"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="20dp"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/et_emp_id_name"
+                app:layout_constraintStart_toStartOf="parent"
+                android:nestedScrollingEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/background_gray">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cg_emp_names"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </com.google.android.material.chip.ChipGroup>
+            </ScrollView>
+
+            <Button
+                android:id="@+id/btn_grant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:padding="0dp"
+                android:text="Grant"
+                app:layout_constraintTop_toBottomOf="@+id/sv_emp_names"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:borderWidth="0dp"
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        android:backgroundTint="@color/dark_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

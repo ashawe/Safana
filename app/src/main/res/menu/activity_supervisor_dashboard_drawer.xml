@@ -15,11 +15,11 @@
         <item
             android:id="@+id/nav_leave_management"
             android:icon="@drawable/ic_menu_send"
-            android:title="Leave Management" />
+            android:title="@string/leave_management" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_allowance_management"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/allowance_management" />
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_manage"

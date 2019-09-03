@@ -11,16 +11,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.WorkerProfileActivity"
+        <activity android:name=".CreateAllowanceActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".activities.WorkerProfileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.NewProjectSelectWorkerActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".activities.NewProjectActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.AddEmployeesActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".activities.AddEmployeesActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -1,25 +1,16 @@
 package com.ashstudios.safana.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.ashstudios.safana.BottomSheetSortLeaveFragment;
+import com.ashstudios.safana.Fragments.BottomSheetSortLeaveFragment;
 import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.R;
-import com.ashstudios.safana.others.Msg;
 import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.view.MenuItem;
-import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -32,9 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.widget.Toast;
-
-import java.util.List;
 
 public class SupervisorDashboard extends AppCompatActivity {
 
@@ -56,8 +44,8 @@ public class SupervisorDashboard extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_worker, R.id.nav_project_details, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_leave_management)
+                R.id.nav_worker, R.id.nav_project_details, R.id.nav_allowance_management,
+                R.id.nav_tools, R.id.nav_leave_management)
                 .setDrawerLayout(drawer)
                 .build();
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
