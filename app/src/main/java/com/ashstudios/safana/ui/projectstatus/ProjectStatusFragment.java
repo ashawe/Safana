@@ -71,7 +71,7 @@ public class ProjectStatusFragment extends Fragment {
     }
 
     private void pieCharData() {
-        int numValues = 6;
+        int numValues = 4;
 
         List<SliceValue> values = new ArrayList<SliceValue>();
         for (int i = 0; i < numValues; ++i) {

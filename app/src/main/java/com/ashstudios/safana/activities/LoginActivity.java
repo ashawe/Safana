@@ -5,7 +5,10 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     if((motionEvent.getRawX() >= (editText.getRight() - editText.getCompoundDrawables()[2].getBounds().width() - 20))) {
                         if(editText.getText().length() <= 0) {
-                            editText.setError("Enter proper id...");
+                            editText.setError("Enter ID ");
                         }
                         else {
                             isSwipe = true;
@@ -65,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     if((motionEvent.getRawX() >= (editText1.getRight() - editText1.getCompoundDrawables()[2].getBounds().width() - 20)) && editText1.getText().length() != 10) {
                         if(editText1.getText().length() <= 0) {
-                            editText1.setError("Please enter password...");
+                            editText1.setError("Enter password ");
                         }
                         else {
                             if (editText.getText().toString().equals("Emp123") && editText1.getText().toString().equals("emp123")) {
