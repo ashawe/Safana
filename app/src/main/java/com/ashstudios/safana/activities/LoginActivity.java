@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                                             if(task.getResult().getString("password").equals("")) {
                                                 //new user activity
                                                 Intent intent = new Intent(getBaseContext(),NewUserActivity.class);
+                                                intent.putExtra("empid",documentID);
                                                 finish();
                                                 startActivity(intent);
                                             }
