@@ -9,21 +9,33 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.ashstudios.safana.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editText,editText1;
-    private
-
+    public FirebaseFirestore db;
+    private Boolean isPresent = false;
     Context context;
+    String documentID;
     Intent intent;
     private Boolean isSwipe = false;
     private ConstraintLayout constraintLayout;
@@ -32,6 +44,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        FirebaseApp.initializeApp(this);
+        db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         initialize();
@@ -44,16 +62,43 @@ public class LoginActivity extends AppCompatActivity {
                             editText.setError("Enter ID ");
                         }
                         else {
-                            isSwipe = true;
-                            final AnimatorSet as = new AnimatorSet();
-                            ObjectAnimator animator1 = ObjectAnimator.ofFloat(findViewById(R.id.et_emp_id), "translationX", - constraintLayout.getWidth());
-                            ObjectAnimator animator2 = ObjectAnimator.ofFloat(findViewById(R.id.et_pwd), "translationX", 0);
-                            animator1.setDuration(500);
-                            animator2.setDuration(500);
-                            as.play(animator1);
-                            as.play(animator2);
-                            as.start();
-                            editText1.requestFocus();
+                            //check if it is the first user or not
+                            db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if(task.isSuccessful()) {
+                                        boolean userExists = false;
+                                        for(DocumentSnapshot doc:task.getResult()) {
+                                            if(doc.getString("empid").equals(editText.getText().toString().trim())) {
+                                                if(doc.getString("password").equals(""))
+                                                {
+                                                    Intent intent = new Intent(getBaseContext(),NewUserActivity.class);
+                                                    startActivity(intent);
+                                                    userExists = true;
+                                                }
+                                                else
+                                                {
+                                                    documentID = doc.getId();
+                                                    userExists = true;
+                                                    isSwipe = true;
+                                                    final AnimatorSet as = new AnimatorSet();
+                                                    ObjectAnimator animator1 = ObjectAnimator.ofFloat(findViewById(R.id.et_emp_id), "translationX", -constraintLayout.getWidth());
+                                                    ObjectAnimator animator2 = ObjectAnimator.ofFloat(findViewById(R.id.et_pwd), "translationX", 0);
+                                                    animator1.setDuration(500);
+                                                    animator2.setDuration(500);
+                                                    as.play(animator1);
+                                                    as.play(animator2);
+                                                    as.start();
+                                                    editText1.requestFocus();
+                                                }
+                                            }
+                                        }
+                                        if(!userExists) {
+                                            Toast.makeText(context, "user doesn't exist", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            });
                             return true;
                         }
                     }
@@ -71,16 +116,30 @@ public class LoginActivity extends AppCompatActivity {
                             editText1.setError("Enter password ");
                         }
                         else {
-                            if (editText.getText().toString().equals("Emp123") && editText1.getText().toString().equals("emp123")) {
-                                intent = new Intent(getBaseContext(), WorkerDashboardActivity.class);
-                                finish();
-                                startActivity(intent);
-                            } else if (editText.getText().toString().equals("Sup123") && editText1.getText().toString().equals("sup123")) {
-                                intent = new Intent(getBaseContext(), SupervisorDashboard.class);
-                                finish();
-                                startActivity(intent);
-                            } else
-                                Toast.makeText(context, "Wrong ID or password", Toast.LENGTH_SHORT).show();
+                            db.collection("users").document(documentID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if(task.isSuccessful()) {
+                                        if( task.getResult().getString("password").equals(editText1.getText().toString().trim()))
+                                        {
+                                            if(task.getResult().getBoolean("isSup")){
+                                                Intent intent = new Intent(getBaseContext(),SupervisorDashboard.class);
+                                                startActivity(intent);
+                                            }
+                                            else
+                                            {
+                                                Intent intent = new Intent(getBaseContext(),WorkerDashboardActivity.class);
+                                                startActivity(intent);
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(context, "wrong password", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            });
                             return true;
                         }
                     }
@@ -96,6 +155,7 @@ public class LoginActivity extends AppCompatActivity {
             super.onBackPressed();
         else {
             isSwipe = false;
+            isPresent = false;
             final AnimatorSet as = new AnimatorSet();
             ObjectAnimator animator1 = ObjectAnimator.ofFloat(findViewById(R.id.et_pwd), "translationX", constraintLayout.getWidth());
             ObjectAnimator animator2 = ObjectAnimator.ofFloat(findViewById(R.id.et_emp_id), "translationX", 0);

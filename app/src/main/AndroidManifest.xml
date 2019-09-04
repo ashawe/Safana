@@ -14,9 +14,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.NewUserActivity"></activity>
         <activity
             android:name=".activities.CompleteWorkerProfileActivity"
-            android:theme="@style/activity_custom"/>
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.CreateTaskActivity"
             android:theme="@style/activity_custom" />
