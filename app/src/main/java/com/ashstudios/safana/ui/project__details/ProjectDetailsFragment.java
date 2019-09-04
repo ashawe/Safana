@@ -9,15 +9,25 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.activities.NewProjectActivity;
+import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.projectstatus.ProjectStatusViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +47,44 @@ public class ProjectDetailsFragment extends Fragment {
     private ProjectStatusViewModel projectStatusViewModel;
     private PieChartView pieLineChartView;
     private ProjectDetailsViewModel projectDetailsViewModel;
+    public FirebaseFirestore db;
+    ProgressBar progressBar;
+    private AlertDialog dialog;
+    SharedPref sharedPref;
+    ScrollView scrollView;
+    String projectId;
+    DocumentSnapshot projectDetails;
+    TextView mTvCreateProject;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         projectDetailsViewModel =
                 ViewModelProviders.of(this).get(ProjectDetailsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_project_details, container, false);
-        ProgressBar progressBar = root.findViewById(R.id.progress_bar);
+        progressBar = root.findViewById(R.id.progress_bar);
         FloatingActionButton fab = root.findViewById(R.id.fab);
+        scrollView = root.findViewById(R.id.sv_project_details);
+        mTvCreateProject = root.findViewById(R.id.nothing_here);
 
-        progressBar.setProgress(60);
+        sharedPref = new SharedPref(getActivity());
+
+        // firestore
+        db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
+
+        // for loader
+            ProgressBar progressBarLoading = new ProgressBar(getActivity());
+            progressBarLoading.setPadding(10,30,10,30);
+            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+            dialog = alertDialog.create();
+            dialog.setCancelable(false);
+            dialog.setView(progressBarLoading);
+
+        // setting Document Snapshot null to distinguish if data is loaded or not
+        projectDetails = null;
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +94,46 @@ public class ProjectDetailsFragment extends Fragment {
             }
         });
 
-//        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        String empId = sharedPref.getEMP_ID();
+        dialog.show();
+        db.collection("Employees").document(empId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if(task.isSuccessful() && documentSnapshot.exists())
+                {
+                    projectId = documentSnapshot.getString("project_id");
+                    if(projectId != null)
+                    {
+                        db.collection("Projects").document(projectId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if(task.isSuccessful())
+                                {
+                                    if(task.getResult().exists())
+                                    {
+                                        projectDetails = task.getResult();
+                                        scrollView.setVisibility(View.VISIBLE);
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    else
+                    {
+                        mTvCreateProject.setVisibility(View.VISIBLE);
+                    }
+                }
+                dialog.dismiss();
+            }
+        });
+
+        initGraphs(root);
+        return root;
+    }
+
+    private void initGraphs(View root) {
+        progressBar.setProgress(60);
         LineChartView lineChartView = root.findViewById(R.id.chart);
         pieLineChartView = root.findViewById(R.id.pie_chart);
         pieCharData();
@@ -79,8 +156,6 @@ public class ProjectDetailsFragment extends Fragment {
         LineChartView chart = new LineChartView(getActivity());
         lineChartView.setLineChartData(data);
         lineChartView.animate();
-
-        return root;
     }
 
     @Override
