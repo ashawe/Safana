@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,11 +24,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
-import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
-import com.ashstudios.safana.ui.tasks.TasksFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class WorkerDashboardActivity extends AppCompatActivity {
@@ -36,6 +37,7 @@ public class WorkerDashboardActivity extends AppCompatActivity {
     private TextView mTvName,mTvEmail;
     private NavigationView navigationView;
     private Bundle taskSortBundle;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,7 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WorkerDashboardActivity.this,CompleteWorkerProfileActivity.class);
+                Intent intent = new Intent(WorkerDashboardActivity.this, OwnWorkerProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -120,6 +122,15 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         Drawable favoriteIcon5 = DrawableCompat.wrap(favoriteItem5.getIcon());
         DrawableCompat.setTintList(favoriteIcon5, colorSelector1);
         favoriteItem5.setIcon(favoriteIcon5);
+        linearLayout = findViewById(R.id.ll_logout);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPref sharedPref = new SharedPref(getBaseContext());
+                sharedPref.logout();
+                finish();
+            }
+        });
     }
 
     @Override

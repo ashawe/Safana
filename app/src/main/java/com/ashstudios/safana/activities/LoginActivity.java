@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,13 +19,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.others.Msg;
+import com.ashstudios.safana.others.SharedPref;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editText,editText1;
@@ -57,46 +64,40 @@ public class LoginActivity extends AppCompatActivity {
                             editText.setError("Enter ID ");
                         }
                         else {
+                            documentID = (editText.getText().toString().trim());
                             dialog.show();
                             //check if it is the first user or not
-                            db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            db.collection("Employees").document(documentID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if(task.isSuccessful()) {
-                                        boolean userExists = false;
-                                        for(DocumentSnapshot doc:task.getResult()) {
-                                            if(doc.getString("empid").equals(editText.getText().toString().trim())) {
-                                                if(doc.getString("password").equals(""))
-                                                {
-                                                    dialog.dismiss();
-                                                    Intent intent = new Intent(getBaseContext(),NewUserActivity.class);
-                                                    finish();
-                                                    startActivity(intent);
-                                                    userExists = true;
-                                                }
-                                                else
-                                                {
-                                                    dialog.dismiss();
-                                                    documentID = doc.getId();
-                                                    userExists = true;
-                                                    isSwipe = true;
-                                                    final AnimatorSet as = new AnimatorSet();
-                                                    ObjectAnimator animator1 = ObjectAnimator.ofFloat(findViewById(R.id.et_emp_id), "translationX", -constraintLayout.getWidth());
-                                                    ObjectAnimator animator2 = ObjectAnimator.ofFloat(findViewById(R.id.et_pwd), "translationX", 0);
-                                                    animator1.setDuration(500);
-                                                    animator2.setDuration(500);
-                                                    as.play(animator1);
-                                                    as.play(animator2);
-                                                    as.start();
-                                                    editText1.requestFocus();
-                                                }
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        if(Objects.requireNonNull(task.getResult()).exists()) {
+                                            dialog.dismiss();
+                                            if(task.getResult().getString("password").equals("")) {
+                                                //new user activity
+                                                Intent intent = new Intent(getBaseContext(),NewUserActivity.class);
+                                                finish();
+                                                startActivity(intent);
+                                            }
+                                            else {
+                                                //display the password field
+                                                isSwipe = true;
+                                                final AnimatorSet as = new AnimatorSet();
+                                                ObjectAnimator animator1 = ObjectAnimator.ofFloat(findViewById(R.id.et_emp_id), "translationX", -constraintLayout.getWidth());
+                                                ObjectAnimator animator2 = ObjectAnimator.ofFloat(findViewById(R.id.et_pwd), "translationX", 0);
+                                                animator1.setDuration(500);
+                                                animator2.setDuration(500);
+                                                as.play(animator1);
+                                                as.play(animator2);
+                                                as.start();
+                                                editText1.requestFocus();
                                             }
                                         }
-                                        if(!userExists) {
+                                        else {
+                                            dialog.dismiss();
                                             Toast.makeText(context, "User doesn't exist", Toast.LENGTH_SHORT).show();
                                         }
                                     }
-                                    dialog.dismiss();
                                 }
                             });
                             return true;
@@ -117,13 +118,14 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else {
                             dialog.show();
-                            db.collection("users").document(documentID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Employees").document(documentID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if(task.isSuccessful()) {
                                         if( task.getResult().getString("password").equals(editText1.getText().toString().trim()))
                                         {
-                                            if(task.getResult().getBoolean("isSup")){
+                                            SharedPref sharedPref = new SharedPref(context,true,documentID,task.getResult().getString("name"),task.getResult().getString("mail"));
+                                            if(documentID.contains("SUP")){
                                                 dialog.dismiss();
                                                 Intent intent = new Intent(getBaseContext(),SupervisorDashboard.class);
                                                 finish();

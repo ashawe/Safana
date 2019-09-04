@@ -46,6 +46,7 @@
                     android:layout_width="148dp"
                     android:layout_height="148dp"
                     app:cardCornerRadius="124dp"
+                    android:layout_marginTop="16dp"
                     android:layout_gravity="center"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

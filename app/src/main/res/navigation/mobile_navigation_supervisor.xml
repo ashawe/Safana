@@ -34,4 +34,9 @@
         android:name="com.ashstudios.safana.ui.leave_management.LeaveManagementFragment"
         android:label="Leave Management"
         tools:layout="@layout/fragment_leave_management" />
+
+    <fragment
+        android:id="@+id/nav_worker_laws"
+        android:name="com.ashstudios.safana.ui.laws.WorkerLawsFragment"
+        tools:layout="@layout/fragment_worker_laws" />
 </navigation>

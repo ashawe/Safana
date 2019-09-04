@@ -24,6 +24,10 @@
             android:id="@+id/nav_sup_tasks"
             android:icon="@drawable/ic_tasks"
             android:title="@string/tasks" />
+        <item
+            android:id="@+id/nav_worker_laws"
+            android:icon="@drawable/ic_laws"
+            android:title="@string/laws" />
     </group>
 
 </menu>
