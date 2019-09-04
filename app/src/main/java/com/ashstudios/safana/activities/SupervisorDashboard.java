@@ -19,7 +19,6 @@ import com.ashstudios.safana.Fragments.BottomSheetSortLeaveFragment;
 import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
-import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
 import com.ashstudios.safana.ui.tasks.TasksFragment;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -58,7 +57,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(),WorkerProfileActivity.class);
+                Intent intent = new Intent(getBaseContext(), OwnWorkerProfileActivity.class);
                 startActivity(intent);
             }
         });

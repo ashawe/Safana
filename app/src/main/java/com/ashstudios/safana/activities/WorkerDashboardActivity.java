@@ -22,11 +22,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
-import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
-import com.ashstudios.safana.ui.tasks.TasksFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class WorkerDashboardActivity extends AppCompatActivity {
@@ -53,7 +51,7 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WorkerDashboardActivity.this,CompleteWorkerProfileActivity.class);
+                Intent intent = new Intent(WorkerDashboardActivity.this, OwnWorkerProfileActivity.class);
                 startActivity(intent);
             }
         });

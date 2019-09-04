@@ -14,10 +14,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.TaskDetailsActivity"
+        <activity android:name=".activities.EditProfileActivity"
             android:theme="@style/activity_custom"/>
         <activity
-            android:name=".activities.CompleteWorkerProfileActivity"
+            android:name=".activities.TaskDetailsActivity"
+            android:theme="@style/activity_custom" />
+        <activity
+            android:name=".activities.OwnWorkerProfileActivity"
             android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.CreateTaskActivity"
