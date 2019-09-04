@@ -5,19 +5,15 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -33,10 +29,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class LoginActivity extends AppCompatActivity {
     private EditText editText,editText1;
     public FirebaseFirestore db;
-    private Boolean isPresent = false;
+    private  AlertDialog dialog;
     Context context;
     String documentID;
-    Intent intent;
     private Boolean isSwipe = false;
     private ConstraintLayout constraintLayout;
     @SuppressLint("ClickableViewAccessibility")
@@ -62,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                             editText.setError("Enter ID ");
                         }
                         else {
+                            dialog.show();
                             //check if it is the first user or not
                             db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
@@ -72,12 +68,15 @@ public class LoginActivity extends AppCompatActivity {
                                             if(doc.getString("empid").equals(editText.getText().toString().trim())) {
                                                 if(doc.getString("password").equals(""))
                                                 {
+                                                    dialog.dismiss();
                                                     Intent intent = new Intent(getBaseContext(),NewUserActivity.class);
+                                                    finish();
                                                     startActivity(intent);
                                                     userExists = true;
                                                 }
                                                 else
                                                 {
+                                                    dialog.dismiss();
                                                     documentID = doc.getId();
                                                     userExists = true;
                                                     isSwipe = true;
@@ -94,9 +93,10 @@ public class LoginActivity extends AppCompatActivity {
                                             }
                                         }
                                         if(!userExists) {
-                                            Toast.makeText(context, "user doesn't exist", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(context, "User doesn't exist", Toast.LENGTH_SHORT).show();
                                         }
                                     }
+                                    dialog.dismiss();
                                 }
                             });
                             return true;
@@ -116,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                             editText1.setError("Enter password ");
                         }
                         else {
+                            dialog.show();
                             db.collection("users").document(documentID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -123,21 +124,26 @@ public class LoginActivity extends AppCompatActivity {
                                         if( task.getResult().getString("password").equals(editText1.getText().toString().trim()))
                                         {
                                             if(task.getResult().getBoolean("isSup")){
+                                                dialog.dismiss();
                                                 Intent intent = new Intent(getBaseContext(),SupervisorDashboard.class);
+                                                finish();
                                                 startActivity(intent);
                                             }
                                             else
                                             {
+                                                dialog.dismiss();
                                                 Intent intent = new Intent(getBaseContext(),WorkerDashboardActivity.class);
+                                                finish();
                                                 startActivity(intent);
                                             }
 
                                         }
                                         else
                                         {
-                                            Toast.makeText(context, "wrong password", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(context, "Wrong password", Toast.LENGTH_SHORT).show();
                                         }
                                     }
+                                    dialog.dismiss();
                                 }
                             });
                             return true;
@@ -155,7 +161,6 @@ public class LoginActivity extends AppCompatActivity {
             super.onBackPressed();
         else {
             isSwipe = false;
-            isPresent = false;
             final AnimatorSet as = new AnimatorSet();
             ObjectAnimator animator1 = ObjectAnimator.ofFloat(findViewById(R.id.et_pwd), "translationX", constraintLayout.getWidth());
             ObjectAnimator animator2 = ObjectAnimator.ofFloat(findViewById(R.id.et_emp_id), "translationX", 0);
@@ -172,5 +177,11 @@ public class LoginActivity extends AppCompatActivity {
         editText = findViewById(R.id.et_emp_id);
         editText1 = findViewById(R.id.et_pwd);
         constraintLayout = findViewById(R.id.constraint_layout);
+        ProgressBar progressBar = new ProgressBar(context);
+        progressBar.setPadding(10,30,10,30);
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+        dialog = alertDialog.create();
+        dialog.setCancelable(false);
+        dialog.setView(progressBar);
     }
 }
