@@ -70,9 +70,11 @@ public class LoginActivity extends AppCompatActivity {
                         else {
                             if (editText.getText().toString().equals("Emp123") && editText1.getText().toString().equals("emp123")) {
                                 intent = new Intent(getBaseContext(), WorkerDashboardActivity.class);
+                                finish();
                                 startActivity(intent);
                             } else if (editText.getText().toString().equals("Sup123") && editText1.getText().toString().equals("sup123")) {
                                 intent = new Intent(getBaseContext(), SupervisorDashboard.class);
+                                finish();
                                 startActivity(intent);
                             } else
                                 Toast.makeText(context, "Wrong ID or password", Toast.LENGTH_SHORT).show();

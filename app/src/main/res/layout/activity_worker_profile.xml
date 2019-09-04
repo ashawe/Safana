@@ -41,21 +41,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary">
+
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
-                    android:layout_width="148dp"
-                    android:layout_height="148dp"
-                    app:cardCornerRadius="124dp"
-                    android:layout_gravity="center"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/view2"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical|center"
+                    android:layout_marginTop="16dp"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    app:cardCornerRadius="75dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <ImageView
-                        android:id="@+id/profile_photo"
-                        android:layout_width="148dp"
-                        android:src="@drawable/photographer_profile"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:scaleType="centerCrop"
-                        android:layout_height="148dp" />
+                        android:src="@drawable/photographer_profile" />
+
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -69,7 +75,7 @@
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
 
                 <TextView
                     android:id="@+id/emp_name"
