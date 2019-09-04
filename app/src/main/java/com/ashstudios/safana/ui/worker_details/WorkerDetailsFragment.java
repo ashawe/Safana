@@ -22,7 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class WorkerDetailsFragment extends Fragment {
 
     static private WorkerDetailsViewModel workerDetailsViewModel;
-    static RecyclerView recyclerView;
+    static private RecyclerView recyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

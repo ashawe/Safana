@@ -21,7 +21,7 @@
             android:icon="@drawable/ic_allowances"
             android:title="@string/allowance_management" />
         <item
-            android:id="@+id/nav_tasks"
+            android:id="@+id/nav_sup_tasks"
             android:icon="@drawable/ic_tasks"
             android:title="@string/tasks" />
     </group>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TaskDetailsActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/title_project_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingTop="20dp"
+                android:paddingBottom="0dp"
+                android:text="Datbase Design"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_task_assigned_to_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingTop="20dp"
+                android:paddingBottom="0dp"
+                android:text="Assigned To:"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_task_date_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_project_name" />
+
+            <TextView
+                android:id="@+id/tv_task_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingTop="20dp"
+                android:paddingBottom="0dp"
+                android:text="Due Date"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_task_assigned_to"
+                app:layout_constraintTop_toBottomOf="@+id/title_project_name" />
+
+            <TextView
+                android:id="@+id/tv_task_assigned_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingBottom="0dp"
+                android:text="@string/dummy_short_name"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_task_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_task_assigned_to_text" />
+
+            <TextView
+                android:id="@+id/tv_task_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingBottom="0dp"
+                android:text="12/11/19"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_task_assigned_to"
+                app:layout_constraintTop_toBottomOf="@+id/tv_task_date_text" />
+
+            <TextView
+                android:id="@+id/tv_task_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/lexenddeca"
+                android:paddingTop="20dp"
+                android:paddingBottom="0dp"
+                android:text="@string/dummy_paragraph"
+                android:textAlignment="textStart"
+                android:textAllCaps="true"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_task_date" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/colorAccent"
+                android:text="Mark as complete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_task_desc" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

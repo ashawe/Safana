@@ -22,7 +22,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
+import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
+import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
+import com.ashstudios.safana.ui.tasks.TasksFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class WorkerDashboardActivity extends AppCompatActivity {
@@ -31,12 +35,15 @@ public class WorkerDashboardActivity extends AppCompatActivity {
     private ImageView mProfileImage;
     private TextView mTvName,mTvEmail;
     private NavigationView navigationView;
+    private Bundle taskSortBundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_dashboard);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        taskSortBundle = new Bundle();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -128,4 +135,44 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                if(navigationView.getMenu().findItem(R.id.nav_tasks).isChecked())
+                {
+                    BottomSheetTaskFragment bottomSheetTaskFragment = new BottomSheetTaskFragment();
+                    taskSortBundle = initTaskSortBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
+                    bottomSheetTaskFragment.setArguments(taskSortBundle);
+                    bottomSheetTaskFragment.show(getSupportFragmentManager(), "bstf");
+                }
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void onWorkerDetailsSortingChanged(Bundle b)
+    {
+        taskSortBundle = (Bundle)b.clone();
+        MyTasksFragment.sort(getBaseContext(),taskSortBundle);
+    }
+
+    private Bundle initTaskSortBundle()
+    {
+        if(taskSortBundle.isEmpty())
+        {
+            taskSortBundle.putBoolean("isSupervisor",false);
+            taskSortBundle.putBoolean("dateChip",false);
+            taskSortBundle.putBoolean("completedChip",false);
+            taskSortBundle.putBoolean("incompleteChip",false);
+            return taskSortBundle;
+        }
+        else
+        {
+            return taskSortBundle;
+        }
+    }
+    
 }
