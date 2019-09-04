@@ -30,6 +30,7 @@ public class SharedPref {
         this.context = context;
         String PREF_NAME = "safana";
         sharedPreferences = context.getSharedPreferences(PREF_NAME,Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
     }
 
     public boolean getIS_LOGGED_IN() {

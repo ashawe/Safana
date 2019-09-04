@@ -20,6 +20,7 @@ import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.Fragments.BottomSheetSortLeaveFragment;
 import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
 import com.ashstudios.safana.ui.tasks.TasksFragment;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
@@ -69,7 +70,8 @@ public class SupervisorDashboard extends AppCompatActivity {
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SupervisorDashboard.this, "Logging out", Toast.LENGTH_SHORT).show();
+                SharedPref sharedPref = new SharedPref(getBaseContext());
+                sharedPref.logout();
                 finish();
             }
         });
