@@ -1,8 +1,10 @@
 package com.ashstudios.safana.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,15 +16,18 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.Fragments.BottomSheetSortLeaveFragment;
+import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
+import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
+import com.ashstudios.safana.ui.tasks.TasksFragment;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class SupervisorDashboard extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private Bundle workerSortBundle;
+    private Bundle workerSortBundle, taskSortBundle;
     private Bundle leaveSortBundle;
     private MenuItem menuItem;
     NavigationView navigationView;
@@ -40,7 +45,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_worker, R.id.nav_project_details, R.id.nav_allowance_management,
-                R.id.nav_tasks, R.id.nav_leave_management)
+                R.id.nav_sup_tasks, R.id.nav_leave_management)
                 .setDrawerLayout(drawer)
                 .build();
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -48,8 +53,15 @@ public class SupervisorDashboard extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         workerSortBundle = new Bundle();
         leaveSortBundle = new Bundle();
-
+        taskSortBundle = new Bundle();
         menuItem = navigationView.getCheckedItem();
+        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(),WorkerProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -75,14 +87,20 @@ public class SupervisorDashboard extends AppCompatActivity {
                     BottomSheetSortFragment bottomSheetFragment = new BottomSheetSortFragment();
                     workerSortBundle = initWorkerBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
                     bottomSheetFragment.setArguments(workerSortBundle);
-                    bottomSheetFragment.show(getSupportFragmentManager(), "hello");
+                    bottomSheetFragment.show(getSupportFragmentManager(), "bssf");
                 }
                 else if (navigationView.getMenu().findItem(R.id.nav_leave_management).isChecked())
                 {
                     BottomSheetSortLeaveFragment bottomSheetSortLeaveFragment = new BottomSheetSortLeaveFragment();
                     leaveSortBundle = initLeaveSortBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
                     bottomSheetSortLeaveFragment.setArguments(leaveSortBundle);
-                    bottomSheetSortLeaveFragment.show(getSupportFragmentManager(), "hello");
+                    bottomSheetSortLeaveFragment.show(getSupportFragmentManager(), "bsslf");
+                }
+                else if(navigationView.getMenu().findItem(R.id.nav_sup_tasks).isChecked()) {
+                    BottomSheetTaskFragment bottomSheetTaskFragment = new BottomSheetTaskFragment();
+                    taskSortBundle = initTaskSortBundle();  // for remembering the sorting. Otherwise default sorting is always displayed not the selected one
+                    bottomSheetTaskFragment.setArguments(taskSortBundle);
+                    bottomSheetTaskFragment.show(getSupportFragmentManager(), "bstf");
                 }
                 return true;
 
@@ -137,6 +155,27 @@ public class SupervisorDashboard extends AppCompatActivity {
         else
         {
             return leaveSortBundle;
+        }
+    }
+    public void onSupervisorTaskSortChange(Bundle b)
+    {
+        taskSortBundle = (Bundle)b.clone();
+        TasksFragment.sort(getBaseContext(),taskSortBundle);
+    }
+
+    private Bundle initTaskSortBundle()
+    {
+        if(taskSortBundle.isEmpty())
+        {
+            taskSortBundle.putBoolean("isSupervisor",true);
+            taskSortBundle.putBoolean("dateChip",false);
+            taskSortBundle.putBoolean("completedChip",false);
+            taskSortBundle.putBoolean("incompleteChip",false);
+            return taskSortBundle;
+        }
+        else
+        {
+            return taskSortBundle;
         }
     }
 }

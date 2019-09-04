@@ -1,10 +1,12 @@
 package com.ashstudios.safana.ui.mytasks;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,14 +23,15 @@ import com.ashstudios.safana.adapters.SupervisorTaskAdapter;
 import com.ashstudios.safana.adapters.TaskAdapter;
 import com.ashstudios.safana.models.TaskModel;
 import com.ashstudios.safana.others.SwipeToDeleteCallback;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MyTasksFragment extends Fragment {
 
-    private MyTasksViewModel homeViewModel;
-    private RecyclerView recyclerView;
-    private SupervisorTaskAdapter taskAdapter;
+    static private MyTasksViewModel homeViewModel;
+    static private RecyclerView recyclerView;
+    private TaskAdapter taskAdapter;
     private ConstraintLayout constraintLayout;
     private Boolean isUndo = false;
 
@@ -59,7 +62,7 @@ public class MyTasksFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         //set the adapter
-        taskAdapter = new SupervisorTaskAdapter(getActivity(),homeViewModel.getArrayListMutableLiveData());
+        taskAdapter = new TaskAdapter(getActivity(),homeViewModel.getArrayListMutableLiveData());
         recyclerView.setAdapter(taskAdapter);
         enableSwipeToCompleteAndUndo();
         return root;
@@ -96,6 +99,14 @@ public class MyTasksFragment extends Fragment {
 
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeToDeleteCallback);
         itemTouchhelper.attachToRecyclerView(recyclerView);
+    }
+
+    public static void sort(Context mContext, Bundle b)
+    {
+        Toast.makeText( mContext, "sorting...", Toast.LENGTH_LONG).show();
+        homeViewModel.sort(b);
+        TaskAdapter leaveManagementRVAdapter = new TaskAdapter(mContext,homeViewModel.getArrayListMutableLiveData());
+        recyclerView.setAdapter(leaveManagementRVAdapter);
     }
 
 

@@ -1,5 +1,7 @@
 package com.ashstudios.safana.ui.mytasks;
 
+import android.os.Bundle;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -31,5 +33,9 @@ public class MyTasksViewModel extends ViewModel {
         arrayListMutableLiveData.add(new TaskModel("Test User Profile","28/05/2019"));
         arrayListMutableLiveData.add(new TaskModel("Feedback from Client","25/03/2019"));
         arrayListMutableLiveData.add(new TaskModel("Implement User Profile","22/03/2019"));
+    }
+
+    public void sort(Bundle b) {
+        arrayListMutableLiveData.remove(0);
     }
 }

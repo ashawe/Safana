@@ -14,12 +14,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.TaskDetailsActivity"
+            android:theme="@style/activity_custom"/>
         <activity
             android:name=".activities.NewUserActivity"
             android:theme="@style/activity_custom"/>
         <activity
             android:name=".activities.CompleteWorkerProfileActivity"
-            android:theme="@style/activity_custom" />
+            android:theme="@style/activity_custom"/>
         <activity
             android:name=".activities.CreateTaskActivity"
             android:theme="@style/activity_custom" />
@@ -30,22 +32,22 @@
         <activity
             android:name=".activities.CreateAllowanceActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.WorkerProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.NewProjectSelectWorkerActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.NewProjectActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.AddEmployeesActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
