@@ -1,8 +1,10 @@
 package com.ashstudios.safana.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -53,6 +55,13 @@ public class SupervisorDashboard extends AppCompatActivity {
         leaveSortBundle = new Bundle();
         taskSortBundle = new Bundle();
         menuItem = navigationView.getCheckedItem();
+        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(),WorkerProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
