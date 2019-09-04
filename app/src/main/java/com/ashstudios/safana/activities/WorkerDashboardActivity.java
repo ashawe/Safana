@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -34,6 +36,7 @@ public class WorkerDashboardActivity extends AppCompatActivity {
     private TextView mTvName,mTvEmail;
     private NavigationView navigationView;
     private Bundle taskSortBundle;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +121,14 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         Drawable favoriteIcon5 = DrawableCompat.wrap(favoriteItem5.getIcon());
         DrawableCompat.setTintList(favoriteIcon5, colorSelector1);
         favoriteItem5.setIcon(favoriteIcon5);
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(WorkerDashboardActivity.this, "Logging out", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
     }
 
     @Override

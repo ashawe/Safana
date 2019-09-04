@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -29,6 +31,7 @@ public class SupervisorDashboard extends AppCompatActivity {
     private Bundle workerSortBundle, taskSortBundle;
     private Bundle leaveSortBundle;
     private MenuItem menuItem;
+    private LinearLayout linearLayout;
     NavigationView navigationView;
 
     @Override
@@ -37,6 +40,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_supervisor_dashboard);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        linearLayout = findViewById(R.id.ll_logout);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -44,7 +48,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_worker, R.id.nav_project_details, R.id.nav_allowance_management,
-                R.id.nav_sup_tasks, R.id.nav_leave_management)
+                R.id.nav_sup_tasks, R.id.nav_leave_management, R.id.nav_worker_laws)
                 .setDrawerLayout(drawer)
                 .build();
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -61,6 +65,15 @@ public class SupervisorDashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SupervisorDashboard.this, "Logging out", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
     }
 
     @Override

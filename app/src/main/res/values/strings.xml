@@ -81,4 +81,5 @@
     <string name="name">Name</string>
     <string name="save">Save</string>
     <string name="edit">Edit</string>
+    <string name="logout">Logout</string>
 </resources>
