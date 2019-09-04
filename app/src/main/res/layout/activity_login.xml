@@ -42,7 +42,7 @@
                     android:drawableEnd="@drawable/ic_arrow"
                     android:ems="10"
                     android:hint="@string/enter_your_id"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapCharacters"
                     android:padding="10dp" />
 
                 <EditText

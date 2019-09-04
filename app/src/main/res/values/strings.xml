@@ -82,4 +82,7 @@
     <string name="save">Save</string>
     <string name="edit">Edit</string>
     <string name="logout">Logout</string>
+    <string name="full_name">Full Name</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

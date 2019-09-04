@@ -26,6 +26,7 @@ import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -121,11 +122,12 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         Drawable favoriteIcon5 = DrawableCompat.wrap(favoriteItem5.getIcon());
         DrawableCompat.setTintList(favoriteIcon5, colorSelector1);
         favoriteItem5.setIcon(favoriteIcon5);
-
+        linearLayout = findViewById(R.id.ll_logout);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(WorkerDashboardActivity.this, "Logging out", Toast.LENGTH_SHORT).show();
+                SharedPref sharedPref = new SharedPref(getBaseContext());
+                sharedPref.logout();
                 finish();
             }
         });

@@ -23,6 +23,9 @@
             android:name=".activities.OwnWorkerProfileActivity"
             android:theme="@style/activity_custom" />
         <activity
+            android:name=".activities.NewUserActivity"
+            android:theme="@style/activity_custom"/>
+        <activity
             android:name=".activities.CreateTaskActivity"
             android:theme="@style/activity_custom" />
         <activity
