@@ -20,6 +20,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_splash);
+        FirebaseApp.initializeApp(this);
         context = SplashActivity.this;
         sharedPref = new SharedPref(context);
         new Handler().postDelayed(new Runnable() {

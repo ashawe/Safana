@@ -52,4 +52,12 @@ public class SharedPref {
     public void logout() {
         editor.putBoolean(IS_LOGGED_IN,false).apply();
     }
+
+    public void setName(String name) {
+        editor.putString(NAME,name).apply();
+    }
+
+    public void setEmail(String email) {
+        editor.putString(EMAIL,email).apply();
+    }
 }
