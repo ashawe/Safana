@@ -133,7 +133,7 @@ public class WorkerDashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPref sharedPref = new SharedPref(getBaseContext());
                 sharedPref.logout();
-                finish();
+                ExitActivity.exitApplicationAndRemoveFromRecent(WorkerDashboardActivity.this);
             }
         });
     }
