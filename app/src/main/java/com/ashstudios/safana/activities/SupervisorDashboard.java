@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -16,6 +18,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.ashstudios.safana.Fragments.BottomSheetSortFragment;
 import com.ashstudios.safana.Fragments.BottomSheetSortLeaveFragment;
 import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
@@ -24,7 +28,12 @@ import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.leave_management.LeaveManagementFragment;
 import com.ashstudios.safana.ui.tasks.TasksFragment;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 public class SupervisorDashboard extends AppCompatActivity {
 
@@ -36,11 +45,14 @@ public class SupervisorDashboard extends AppCompatActivity {
     NavigationView navigationView;
     private SharedPref sharedPref;
     private TextView nav_name, nav_email;
+    private ImageView imageView;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supervisor_dashboard);
+        db = FirebaseFirestore.getInstance();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         linearLayout = findViewById(R.id.ll_logout);
@@ -71,6 +83,8 @@ public class SupervisorDashboard extends AppCompatActivity {
         });
         nav_name = header.findViewById(R.id.nav_name);
         nav_email = header.findViewById(R.id.nav_email);
+        imageView = header.findViewById(R.id.profile_image);
+        loadNavViewHeaderImage();
         nav_name.setText(sharedPref.getNAME());
         nav_email.setText(sharedPref.getEMAIL());
 
@@ -83,6 +97,24 @@ public class SupervisorDashboard extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void loadNavViewHeaderImage() {
+        db.collection("Employees").document(sharedPref.getEMP_ID()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if(!documentSnapshot.getData().containsKey("profile_image") || documentSnapshot.getString("profile_image").equals("")) {
+                    ColorGenerator colorGenerator = ColorGenerator.MATERIAL;
+                    int color = colorGenerator.getRandomColor();
+                    TextDrawable textDrawable = TextDrawable.builder().buildRect(String.valueOf(sharedPref.getNAME().charAt(0)),color);
+                    imageView.setImageDrawable(textDrawable);
+                }
+                else {
+                    Picasso.get().load(task.getResult().getString("profile_image")).fit().into(imageView);
+                }
+            }
+        });
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
@@ -29,7 +30,12 @@ import com.ashstudios.safana.R;
 import com.ashstudios.safana.others.Msg;
 import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 public class WorkerDashboardActivity extends AppCompatActivity {
 
@@ -41,11 +47,13 @@ public class WorkerDashboardActivity extends AppCompatActivity {
     private LinearLayout linearLayout;
     private SharedPref sharedPref;
     private TextView nav_name, nav_email;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_worker_dashboard);
+        db = FirebaseFirestore.getInstance();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         taskSortBundle = new Bundle();
@@ -67,12 +75,7 @@ public class WorkerDashboardActivity extends AppCompatActivity {
             }
         });
         mProfileImage = header.findViewById(R.id.profile_image);
-        mTvName = header.findViewById(R.id.nav_name);
-        mTvEmail = header.findViewById(R.id.nav_email);
-        ColorGenerator colorGenerator = ColorGenerator.MATERIAL;
-        int color = colorGenerator.getRandomColor();
-        TextDrawable textDrawable = TextDrawable.builder().buildRect("R",color);
-        mProfileImage.setImageDrawable(textDrawable);
+        loadNavViewHeaderImage();
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -93,6 +96,23 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         ColorStateList colorSelector = ResourcesCompat.getColorStateList(getResources(), R.color.success, getTheme());
         DrawableCompat.setTintList(favoriteIcon, colorSelector);
         favoriteItem.setIcon(favoriteIcon);
+    }
+    private void loadNavViewHeaderImage() {
+        db.collection("Employees").document(sharedPref.getEMP_ID()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if(!documentSnapshot.getData().containsKey("profile_image") || documentSnapshot.getString("profile_image").equals("")) {
+                    ColorGenerator colorGenerator = ColorGenerator.MATERIAL;
+                    int color = colorGenerator.getRandomColor();
+                    TextDrawable textDrawable = TextDrawable.builder().buildRect(String.valueOf(sharedPref.getNAME().charAt(0)),color);
+                    mProfileImage.setImageDrawable(textDrawable);
+                }
+                else {
+                    Picasso.get().load(task.getResult().getString("profile_image")).fit().into(mProfileImage);
+                }
+            }
+        });
     }
 
     private void setDefaultIconTint() {
