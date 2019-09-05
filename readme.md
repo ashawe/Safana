@@ -209,7 +209,7 @@
 and much more...
 
 ### Sample Firebase Data
-<img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/db.PNG" width="200"/>
+<img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/Capture1.PNG" width="200"/>
   
 ### Collaborate with us!
 Want to contribute? Great!<br/>
