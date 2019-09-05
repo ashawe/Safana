@@ -73,7 +73,7 @@
     <string name="enter_your_password">Enter your password</string>
     <string name="project_status">Project Status</string>
     <string name="_70">70%</string>
-    <string name="date_of_birth">Date of Birth</string>
+    <string name="date_of_birth">Date of Birth (Format - 19/02/2000)</string>
     <string name="gender">Gender</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="role">Role</string>

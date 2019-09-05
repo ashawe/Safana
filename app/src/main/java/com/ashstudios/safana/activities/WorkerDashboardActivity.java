@@ -26,6 +26,7 @@ import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.ashstudios.safana.Fragments.BottomSheetTaskFragment;
 import com.ashstudios.safana.R;
+import com.ashstudios.safana.others.Msg;
 import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.mytasks.MyTasksFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -38,6 +39,8 @@ public class WorkerDashboardActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private Bundle taskSortBundle;
     private LinearLayout linearLayout;
+    private SharedPref sharedPref;
+    private TextView nav_name, nav_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +49,16 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         taskSortBundle = new Bundle();
-
+        sharedPref = new SharedPref(WorkerDashboardActivity.this);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
         //setting nav header items
         View header = navigationView.getHeaderView(0);
+        nav_name = header.findViewById(R.id.nav_name);
+        nav_email = header.findViewById(R.id.nav_email);
+        nav_name.setText(sharedPref.getNAME());
+        nav_email.setText(sharedPref.getEMAIL());
         header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +73,6 @@ public class WorkerDashboardActivity extends AppCompatActivity {
         int color = colorGenerator.getRandomColor();
         TextDrawable textDrawable = TextDrawable.builder().buildRect("R",color);
         mProfileImage.setImageDrawable(textDrawable);
-        mTvName.setText("Rohit Suthar");
-        mTvEmail.setText("rohit@suthar.com");
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

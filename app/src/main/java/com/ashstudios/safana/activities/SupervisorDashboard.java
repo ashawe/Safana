@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,8 @@ public class SupervisorDashboard extends AppCompatActivity {
     private MenuItem menuItem;
     private LinearLayout linearLayout;
     NavigationView navigationView;
+    private SharedPref sharedPref;
+    private TextView nav_name, nav_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         linearLayout = findViewById(R.id.ll_logout);
-
+        sharedPref = new SharedPref(SupervisorDashboard.this);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -59,13 +62,18 @@ public class SupervisorDashboard extends AppCompatActivity {
         leaveSortBundle = new Bundle();
         taskSortBundle = new Bundle();
         menuItem = navigationView.getCheckedItem();
-        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+        View header = navigationView.getHeaderView(0);
+        header.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), OwnWorkerProfileActivity.class);
                 startActivity(intent);
             }
         });
+        nav_name = header.findViewById(R.id.nav_name);
+        nav_email = header.findViewById(R.id.nav_email);
+        nav_name.setText(sharedPref.getNAME());
+        nav_email.setText(sharedPref.getEMAIL());
 
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override

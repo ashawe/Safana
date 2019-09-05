@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -16,7 +15,7 @@ public class OwnWorkerProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_complete_worker_profile);
+        setContentView(R.layout.activity_own_worker_profile);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Safana");
@@ -27,6 +26,7 @@ public class OwnWorkerProfileActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Intent intent = new Intent(getBaseContext(),EditProfileActivity.class);
+                intent.putExtra("which","notfirst");
                 startActivity(intent);
                 finish();
                 return false;
