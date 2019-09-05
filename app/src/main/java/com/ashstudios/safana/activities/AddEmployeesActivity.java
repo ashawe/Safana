@@ -52,7 +52,7 @@ public class AddEmployeesActivity extends AppCompatActivity {
 
         View v = getLayoutInflater().inflate(R.layout.alert_progress,null);
         progressBar = v.findViewById(R.id.progressBar2);
-        tv_alert = v.findViewById(R.id.aleet_tv);
+        tv_alert = v.findViewById(R.id.alert_tv);
         ProgressBar progressBar = new ProgressBar(AddEmployeesActivity.this);
         progressBar.setPadding(10,30,10,30);
 
