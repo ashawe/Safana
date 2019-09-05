@@ -113,6 +113,103 @@
     </td>
   </tr>
 </table>
+
+#### Supervisor
+<table>
+  <tr>
+    <td width="225" align="center">
+      <p><b>Supervisor Dashboard</b></p>
+      <p>Shows different things the supervisor can do</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_nav.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Worker Details</b></p>
+      <p>List of employees under him / her</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/login_empid.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Worker Details Sort</b></p>
+      <p>Asks for password ( if profile complete )</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_worker_details_sort.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Create new employee ids</b></p>
+      <p>Supervisor can create emp ids</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_emp_new.jpg" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" align="center">
+        <p><b>Project Details</b></p>
+        <p>Supervisor can see the project details</p>
+        <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_project_details.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>New Project</b></p>
+      <p>Supervisor can add a new project</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_project_add.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Select Employees</b></p>
+      <p>then supervisor can add employees to the projects</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_project_add_emp.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Calender</b></p>
+      <p>Supervisor can see tasks based on date and priority</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_calender.jpg" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" align="center">
+      <p><b>Leave Management</b></p>
+      <p>Supervisor can review leave requests</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_leave_requests.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Leave Management Sort</b></p>
+      <p>Sort leave requests based on various things</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_leave_sort.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Leave Management</b></p>
+      <p>Supervisor can swipe to accept leave request</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_leave_onSwipe.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Leave Management</b></p>
+      <p>Supervisor can reject / accept / go to calender</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_leave_onClick.jpg" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" align="center">
+      <p><b>Allowance Grant</b></p>
+      <p>Supervisor can grant allowances to employees</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_allowance3.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Create Allowance</b></p>
+      <p>Supervisor can create new allowances</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_create_allownace.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Tasks</b></p>
+      <p>Supervisor can see all the tasks related to the project</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_task_onSwipe.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>Sort Tasks</b></p>
+      <p>User can sort and filter tasks</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/sup_task_sort.jpg" width="200"/>
+    </td>
+  </tr>
+</table>
+
+and much more...
+
+### Sample Firebase Data
+<img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/db.PNG" width="200"/>
   
 ### Collaborate with us!
 Want to contribute? Great!<br/>
