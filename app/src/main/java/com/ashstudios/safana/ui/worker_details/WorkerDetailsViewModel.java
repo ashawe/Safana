@@ -20,22 +20,29 @@ public class WorkerDetailsViewModel extends ViewModel {
 //    "https://i.imgur.com/[0-9a-zA-Z]*.(jpg|png)
 
     private void initData() {
-        WorkerModel workerModel = new WorkerModel("Harsh Saglani","Developer","https://i.imgur.com/wnKtRoZ.png","emp123");
+        WorkerModel workerModel = new WorkerModel("Rohan gill","Designer","https://i.imgur.com/wnKtRoZ.png","emp123");
         workerModels.add(workerModel);
 
-        workerModel = new WorkerModel("Harsh Saglani","Developer","https://i.imgur.com/wnKtRoZ.png","emp123");
+        workerModel = new WorkerModel("Harsh Saglani","UI/UX","https://i.imgur.com/wnKtRoZ.png","emp123");
         workerModels.add(workerModel);
 
         workerModel = new WorkerModel("Rohit Suthar","Developer","https://i.imgur.com/wnKtRoZ.png","emp133");
         workerModels.add(workerModel);
 
-        workerModel = new WorkerModel("John Doe","Developer","https://i.imgur.com/wnKtRoZ.png","emp1223");
+        workerModel = new WorkerModel("John Doe","Designer","https://i.imgur.com/wnKtRoZ.png","emp1223");
         workerModels.add(workerModel);
 
-        workerModel = new WorkerModel("Akshay Kumar","Developer","https://i.imgur.com/wnKtRoZ.png","emp143");
+        workerModel = new WorkerModel("Akshay Kumar","DB Admin","https://i.imgur.com/wnKtRoZ.png","emp143");
         workerModels.add(workerModel);
 
-        workerModel = new WorkerModel("Carry Minati","Developer","https://i.imgur.com/wnKtRoZ.png","emp143");
+        workerModel = new WorkerModel("Carry Minati","UI/UX","https://i.imgur.com/wnKtRoZ.png","emp143");
+        workerModels.add(workerModel);
+
+        workerModel = new WorkerModel("Raju Shriwastav","Architect","https://i.imgur.com/wnKtRoZ.png","emp143");
+        workerModels.add(workerModel);
+
+        workerModel = new WorkerModel("Aniket Pande ","SYS Admin","https://i.imgur.com/wnKtRoZ.png","emp143");
+        workerModels.add(workerModel);
     }
 
     public ArrayList<WorkerModel> getWorkerModels() {

@@ -22,7 +22,7 @@ public class LeaveManagementViewModel extends ViewModel {
     }
 
     private void initData() {
-        LeaveModel leaveModel = new LeaveModel("Harsh Saglani","I'm sick","https://i.imgur.com/wnKtRoZ.png","emp123","10/11/2019");
+        LeaveModel leaveModel = new LeaveModel("Manav Shah","I'm sick","https://i.imgur.com/wnKtRoZ.png","emp123","10/11/2019");
         leaveModels.add(leaveModel);
 
         leaveModel = new LeaveModel("Harsh Saglani","Family Trip","https://i.imgur.com/wnKtRoZ.png","emp123","10/11/2019");
@@ -31,7 +31,7 @@ public class LeaveManagementViewModel extends ViewModel {
         leaveModel = new LeaveModel("John Doe","I'm sick","https://i.imgur.com/wnKtRoZ.png","emp123","10/11/2019");;
         leaveModels.add(leaveModel);
 
-        leaveModel = new LeaveModel("Rohit Suthar","I'm going to take sanyas","https://i.imgur.com/wnKtRoZ.png","emp123","10/11/2019");
+        leaveModel = new LeaveModel("Rohit Suthar","I'm going on a world tour","https://i.imgur.com/wnKtRoZ.png","emp123","10/11/2019");
         leaveModels.add(leaveModel);
 
         leaveModel = new LeaveModel("Krunal Pande","I want vacation","https://i.imgur.com/wnKtRoZ.png","emp123","10/11/2019");
