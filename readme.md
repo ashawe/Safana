@@ -26,6 +26,11 @@
 <table>
   <tr>
     <td width="225" align="center">
+      <p><b>Splash</b></p>
+      <p>The splash screen of the application</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/splash.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
       <p><b>Login</b></p>
       <p>Asks for user id (eg. SUP001 or EMP1523 )</p>
       <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/login_empid.jpg" width="200"/>
@@ -40,22 +45,39 @@
       <p>Else user is asked to fill additional details</p>
       <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_first_user.jpg" width="200"/>
     </td>
-    <td width="225" align="center">
-      <p><b>Edit Profile</b></p>
-      <p>User is asked to complete his profile after sign up</p>
-      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_edit_profile_done.jpg" width="200"/>
-    </td>
-   </tr>
+  </tr>
    <tr>
+     <td width="225" align="center">
+        <p><b>Edit Profile</b></p>
+        <p>User is asked to complete his profile after sign up</p>
+        <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_edit_profile_done.jpg" width="200"/>
+    </td>
     <td width="225" align="center">
       <p><b>Navigation View</b></p>
       <p>Shows different things the user can do</p>
       <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_nav_view.jpg" width="200"/>
     </td>
+     <td width="225" align="center">
+      <p><b>User Profile</b></p>
+      <p>User can see his /her user info</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_profile.jpg" width="200"/>
+    </td>
     <td width="225" align="center">
       <p><b>Tasks</b></p>
       <p>User can view tasks related to the project</p>
       <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_tasks.jpg" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" align="center">
+      <p><b>Sort Tasks</b></p>
+      <p>User can sort and filter tasks</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_sort_task.jpg" width="200"/>
+    </td>
+    <td width="225" align="center">
+      <p><b>New Task</b></p>
+      <p>User can create new task related to the project</p>
+      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/employee/emp_new_task.jpg" width="200"/>
     </td>
     <td width="225" align="center">
       <p><b>Calendar</b></p>
@@ -118,5 +140,3 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 - [CalenderView](https://github.com/AppliKeySolutions/CosmoCalendar)
 - [Pie Charts](https://github.com/lecho/hellocharts-android)
 - [TextDrawable](https://github.com/amulyakhare/TextDrawable)
-
-  
