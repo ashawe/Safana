@@ -57,10 +57,10 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/profile_image"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/photographer_profile" />
+                    android:scaleType="centerCrop" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
