@@ -61,12 +61,11 @@ public class AddEmployeesActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.setView(v);
 
-        FirebaseApp.initializeApp(this);
         db = FirebaseFirestore.getInstance();
-        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
-                .setTimestampsInSnapshotsEnabled(true)
-                .build();
-        db.setFirestoreSettings(settings);
+//        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+//                .setTimestampsInSnapshotsEnabled(true)
+//                .build();
+//        db.setFirestoreSettings(settings);
 
         mBtnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override

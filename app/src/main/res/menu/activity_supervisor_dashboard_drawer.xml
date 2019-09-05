@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_project_details"
             android:title="@string/menu_project_details" />
         <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_calendar"
+            android:title="@string/calendar" />
+        <item
             android:id="@+id/nav_leave_management"
             android:icon="@drawable/ic_leave"
             android:title="@string/leave_management" />

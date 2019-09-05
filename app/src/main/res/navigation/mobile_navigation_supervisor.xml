@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_project_details" />
 
     <fragment
+        android:id="@+id/nav_calendar"
+        android:name="com.ashstudios.safana.ui.calendar.CalendarFragment"
+        android:label="@string/calendar"
+        tools:layout="@layout/fragment_calendar" />
+
+    <fragment
         android:id="@+id/nav_allowance_management"
         android:name="com.ashstudios.safana.ui.allowance_management.AllowanceManagementFragment"
         android:label="@string/allowance_management"

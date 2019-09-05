@@ -62,7 +62,7 @@ public class SupervisorDashboard extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_worker, R.id.nav_project_details, R.id.nav_allowance_management,
+                R.id.nav_worker, R.id.nav_project_details,R.id.nav_calendar, R.id.nav_allowance_management,
                 R.id.nav_sup_tasks, R.id.nav_leave_management, R.id.nav_worker_laws)
                 .setDrawerLayout(drawer)
                 .build();
