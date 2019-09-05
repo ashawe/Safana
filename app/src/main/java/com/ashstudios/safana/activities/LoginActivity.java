@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        FirebaseApp.initializeApp(this);
+
         db = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setTimestampsInSnapshotsEnabled(true)
@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                                             if(task.getResult().getString("password").equals("")) {
                                                 //new user activity
                                                 Intent intent = new Intent(getBaseContext(),NewUserActivity.class);
+                                                intent.putExtra("empid",documentID);
                                                 finish();
                                                 startActivity(intent);
                                             }

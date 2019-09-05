@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.others.SharedPref;
+import com.google.firebase.FirebaseApp;
 
 public class SplashActivity extends AppCompatActivity {
     private Context context;
@@ -18,6 +19,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        FirebaseApp.initializeApp(this);
         context = SplashActivity.this;
         sharedPref = new SharedPref(context);
         new Handler().postDelayed(new Runnable() {

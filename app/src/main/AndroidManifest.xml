@@ -14,8 +14,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.EditProfileActivity"
-            android:theme="@style/activity_custom"/>
+        <activity android:name=".activities.ExitActivity"></activity>
+        <activity
+            android:name=".activities.EditProfileActivity"
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.TaskDetailsActivity"
             android:theme="@style/activity_custom" />
@@ -24,7 +26,7 @@
             android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.NewUserActivity"
-            android:theme="@style/activity_custom"/>
+            android:theme="@style/activity_custom" />
         <activity
             android:name=".activities.CreateTaskActivity"
             android:theme="@style/activity_custom" />
@@ -68,6 +70,8 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
