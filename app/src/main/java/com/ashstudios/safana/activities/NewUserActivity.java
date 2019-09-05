@@ -101,7 +101,7 @@ public class NewUserActivity extends AppCompatActivity {
         db.collection("Employees").document(empId).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                //alertDialog.dismiss();
+                alertDialog.dismiss();
                 //if successfull login then initialize shared pref
                 new SharedPref(context,true,empId,name,email);
                 Intent intent = new Intent(context,EditProfileActivity.class);
