@@ -114,6 +114,7 @@ public class BottomSheetTaskFragment extends BottomSheetDialogFragment {
                 b.putBoolean("dateChip",dateChip);
                 b.putBoolean("completedChip",completeChip);
                 b.putBoolean("incompleteChip",incompleteChip);
+                b.putBoolean("isSupervisor",sorting.getBoolean("isSupervisor"));
 
                 if(sorting.getBoolean("isSupervisor"))
                     ((SupervisorDashboard)getActivity()).onSupervisorTaskSortChange(b);
