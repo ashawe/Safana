@@ -91,4 +91,5 @@
     <string name="project_start_date">Project Start Date*</string>
     <string name="project_due_date">Project Due Date*</string>
     <string name="create">Create</string>
+    <string name="project_save">SAVE</string>
 </resources>

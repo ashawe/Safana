@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
@@ -21,18 +22,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.adapters.WorkerRVSelectAdapter;
 import com.ashstudios.safana.models.WorkerModel;
+import com.ashstudios.safana.others.CustomAlertDialog;
 import com.ashstudios.safana.others.Msg;
 import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.WriteBatch;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -42,6 +46,7 @@ import java.util.Objects;
 public class NewProjectSelectWorkerActivity extends AppCompatActivity {
 
     private ArrayList<WorkerModel> workerModels;
+    private ArrayList<String> alreadyPresentWorkers,notAssignedWorkers,unselectedWorkers;
     private FirebaseFirestore db;
     private SharedPref sharedPref;
     private WorkerDetailsViewModel workerDetailsViewModel;
@@ -50,7 +55,9 @@ public class NewProjectSelectWorkerActivity extends AppCompatActivity {
     private TextView tv_alert, title;
     private Bundle prevData;
     private WorkerRVSelectAdapter workerRVSelectAdapter;
-
+    private boolean isEdit;
+    private CustomAlertDialog customAlertDialog;
+    private String project_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +66,21 @@ public class NewProjectSelectWorkerActivity extends AppCompatActivity {
         sharedPref = new SharedPref(getApplicationContext());
         workerDetailsViewModel = new WorkerDetailsViewModel();
         db = FirebaseFirestore.getInstance();
+        isEdit = getIntent().getExtras().getBoolean("isEdit");
         title = findViewById(R.id.title_project_name);
         prevData = getIntent().getExtras();
-        initNoProjectWorkers();
-
+        customAlertDialog = new CustomAlertDialog(NewProjectSelectWorkerActivity.this);
+        workerModels = new ArrayList<>();
+        alreadyPresentWorkers = new ArrayList<>();
+        notAssignedWorkers = new ArrayList<>();
+        unselectedWorkers = new ArrayList<>();
+        //if project is in edit mode then retrive already added project employees also
+        if(isEdit) {
+            fetchProjectId();
+        }
+        else {
+            initNoProjectWorkers();
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Safana");
 
@@ -70,6 +88,7 @@ public class NewProjectSelectWorkerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -99,8 +118,8 @@ public class NewProjectSelectWorkerActivity extends AppCompatActivity {
             Toast.makeText(this, "Please select at least one employee", Toast.LENGTH_SHORT).show();
             return;
         }
-        tv_alert.setText("Creating Project");
-        alertDialog.show();
+        customAlertDialog.setTextViewText("Saving Project");
+        customAlertDialog.show();
         Map<String,Object> projDetails = new HashMap<>();
         projDetails.put("name", Objects.requireNonNull(prevData.getString("name")));
         projDetails.put("budget", Objects.requireNonNull(prevData.getString("budget")));
@@ -109,56 +128,140 @@ public class NewProjectSelectWorkerActivity extends AppCompatActivity {
         projDetails.put("additional_details", Objects.requireNonNull(prevData.getString("additional_details")));
         projDetails.put("supervisor_id",sharedPref.getEMP_ID());
         projDetails.put("workers", workerModelIds );
-        Msg.log("" + Arrays.asList(workerModelIds));
 
-        db.collection("Projects").add(projDetails).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentReference> task) {
-                if(task.isSuccessful()) {
-                    tv_alert.setText("Adding Workers");
-                    WriteBatch batch = db.batch();
-                    for(String id : workerModelIds)
-                    {
-                        DocumentReference worker = db.collection("Employees").document(id);
-                        worker.update("project_id",task.getResult().getId());
-                    }
-                    batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful())
-                            {
-                                alertDialog.dismiss();
-                                Toast.makeText(NewProjectSelectWorkerActivity.this, "Project Created!", Toast.LENGTH_SHORT).show();
-                                finish();
+        if(isEdit) {
+            final Map<String,Object> data = new HashMap<>();
+            data.put("project_id", FieldValue.delete());
+
+            db.collection("Projects").document(project_id).set(projDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()) {
+                        tv_alert.setText("Adding Workers");
+                        WriteBatch batch = db.batch();
+                        for(String id : workerModelIds)
+                        {
+                            DocumentReference worker = db.collection("Employees").document(id);
+                            worker.update("project_id",project_id);
+                        }
+                        if(isEdit) {
+                            for(String id : unselectedWorkers) {
+                                DocumentReference unselectedWorker = db.collection("Employees").document(id);
+                                unselectedWorker.update(data);
                             }
                         }
-                    });
+                        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful())
+                                {
+                                    customAlertDialog.dismiss();
+                                    Toast.makeText(NewProjectSelectWorkerActivity.this, "Project Created!", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+        else {
+            db.collection("Projects").add(projDetails).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    if(task.isSuccessful()) {
+                        tv_alert.setText("Adding Workers");
+                        WriteBatch batch = db.batch();
+                        for(String id : workerModelIds)
+                        {
+                            DocumentReference worker = db.collection("Employees").document(id);
+                            worker.update("project_id",task.getResult().getId());
+                        }
+                        batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful())
+                                {
+                                    customAlertDialog.dismiss();
+                                    Toast.makeText(NewProjectSelectWorkerActivity.this, "Project Created!", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+
+    private void fetchProjectId() {
+        customAlertDialog.setTextViewText("Fetching Workers");
+        customAlertDialog.show();
+        //first fetch the project id from database
+        db.collection("Projects").whereEqualTo("supervisor_id",sharedPref.getEMP_ID()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    if (task.getResult() != null && task.getResult().size() == 1) {
+                        for(QueryDocumentSnapshot documentSnapshot: task.getResult()) {
+                            project_id = documentSnapshot.getId();
+                            retriveAlreadyPresentWorkers(documentSnapshot.getId());
+                        }
+                    }
                 }
             }
         });
     }
 
+    private void retriveAlreadyPresentWorkers(String project_id) {
+        db.collection("Employees").whereEqualTo("project_id",project_id.trim()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    if(task.getResult() != null) {
+                        for(QueryDocumentSnapshot documentSnapshot: task.getResult()) {
+                            WorkerModel workerModel = new WorkerModel();
+                            workerModel.setEmp_id(documentSnapshot.getId());
+                            workerModel.setSelected(true);
+                            alreadyPresentWorkers.add(documentSnapshot.getId());
+                            workerModel.setName(documentSnapshot.getString("name"));
+                            if (documentSnapshot.getData().containsKey("profile_image"))
+                                workerModel.setImgUrl(documentSnapshot.getString("profile_image"));
+                            else
+                                workerModel.setImgUrl("https://i.imgur.com/wnKtRoZ.png");
+                            if (documentSnapshot.getData().containsKey("role"))
+                                workerModel.setRole(documentSnapshot.getString("role"));
+                            else
+                                workerModel.setRole("NA");
+                            workerModels.add(workerModel);
+                        }
+                        initNoProjectWorkers();
+                    }
+                }
+            }
+        });
+    }
 
     private void initNoProjectWorkers()
     {
-        tv_alert.setText("Fetching Workers");
-        alertDialog.show();
-        workerModels = new ArrayList<>();
+        if(!customAlertDialog.isShowing()) {
+            customAlertDialog.setTextViewText("Fetching Workers");
+            customAlertDialog.show();
+        }
         db.collection("Employees").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful())
                 {
-                    Msg.log("success");
                     if(task.getResult() != null) {
                         for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                            Msg.log("success123");
                             if (!documentSnapshot.getString("password").equals(""))
                                 if (!documentSnapshot.getData().containsKey("project_id")) {
                                     if (!documentSnapshot.getId().equals(sharedPref.getEMP_ID())) {
                                         Msg.log("emp found " + documentSnapshot.getString("name"));
                                         WorkerModel workerModel = new WorkerModel();
                                         workerModel.setEmp_id(documentSnapshot.getId());
+                                        notAssignedWorkers.add(documentSnapshot.getId());
                                         workerModel.setName(documentSnapshot.getString("name"));
                                         if (documentSnapshot.getData().containsKey("profile_image"))
                                             workerModel.setImgUrl(documentSnapshot.getString("profile_image"));
@@ -180,7 +283,7 @@ public class NewProjectSelectWorkerActivity extends AppCompatActivity {
                             recyclerView.setNestedScrollingEnabled(false);
                             recyclerView.setAdapter(workerRVSelectAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(NewProjectSelectWorkerActivity.this));
-                            alertDialog.dismiss();
+                            customAlertDialog.dismiss();
                         }
                         else
                             title.setText("Each employee is working on a project");
@@ -200,6 +303,12 @@ public class NewProjectSelectWorkerActivity extends AppCompatActivity {
         for(WorkerModel worker : workerModels){
             if (worker.isSelected())
                 ids.add(worker.getEmp_id());
+            else {
+                //if the worker is already present in the project and now if it is unselected then update project id in the database
+                if(alreadyPresentWorkers.contains(worker.getEmp_id())) {
+                    unselectedWorkers.add(worker.getEmp_id());
+                }
+            }
         }
         return ids;
     }
