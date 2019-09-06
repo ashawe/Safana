@@ -45,7 +45,7 @@
                 android:fontFamily="@font/lexenddeca"
                 android:paddingTop="20dp"
                 android:paddingBottom="0dp"
-                android:text="Project Name Here"
+                android:text="@string/project_name"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/dark_gray"

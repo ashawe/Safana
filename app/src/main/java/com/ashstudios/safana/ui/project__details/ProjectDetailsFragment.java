@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.activities.NewProjectActivity;
+import com.ashstudios.safana.others.Msg;
 import com.ashstudios.safana.others.SharedPref;
 import com.ashstudios.safana.ui.projectstatus.ProjectStatusViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -54,7 +56,7 @@ public class ProjectDetailsFragment extends Fragment {
     ScrollView scrollView;
     String projectId;
     DocumentSnapshot projectDetails;
-    TextView mTvCreateProject;
+    TextView mTvCreateProject,mTvProjectName,mTvProjectDueDate,mTvProjectNumWorkers,mTvProjectBudget,mTvProjectStartDate,mTvAdditionalDetails;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +67,12 @@ public class ProjectDetailsFragment extends Fragment {
         FloatingActionButton fab = root.findViewById(R.id.fab);
         scrollView = root.findViewById(R.id.sv_project_details);
         mTvCreateProject = root.findViewById(R.id.nothing_here);
+        mTvProjectName = root.findViewById(R.id.title_project_name);
+        mTvProjectDueDate = root.findViewById(R.id.tv_due_date);
+        mTvProjectNumWorkers = root.findViewById(R.id.tv_num_worker);
+        mTvProjectBudget = root.findViewById(R.id.tv_budget);
+        mTvProjectStartDate = root.findViewById(R.id.tv_start_date);
+        mTvAdditionalDetails = root.findViewById(R.id.tv_additional_details);
 
         sharedPref = new SharedPref(getActivity());
 
@@ -96,35 +104,32 @@ public class ProjectDetailsFragment extends Fragment {
 
         String empId = sharedPref.getEMP_ID();
         dialog.show();
-        db.collection("Employees").document(empId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Projects").whereEqualTo("supervisor_id",sharedPref.getEMP_ID()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot documentSnapshot = task.getResult();
-                if(task.isSuccessful() && documentSnapshot.exists())
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful())
                 {
-                    projectId = documentSnapshot.getString("project_id");
-                    if(projectId != null)
+                    if(task.getResult()!= null && task.getResult().size() == 1)
                     {
-                        db.collection("Projects").document(projectId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if(task.isSuccessful())
-                                {
-                                    if(task.getResult().exists())
-                                    {
-                                        projectDetails = task.getResult();
-                                        scrollView.setVisibility(View.VISIBLE);
-                                    }
-                                }
-                            }
-                        });
+                        for(QueryDocumentSnapshot documentSnapshot : task.getResult())
+                        {
+                            mTvProjectName.setText(documentSnapshot.getString("name"));
+                            mTvProjectDueDate.setText(documentSnapshot.getString("due_date"));
+                            mTvProjectNumWorkers.setText("" + ((ArrayList<String>) documentSnapshot.get("workers")).size());
+                            mTvProjectBudget.setText(documentSnapshot.getString("budget"));
+                            mTvProjectStartDate.setText(documentSnapshot.getString("start_date"));
+                            mTvAdditionalDetails.setText(documentSnapshot.getString("additional_details"));
+                            scrollView.setVisibility(View.VISIBLE);
+                            mTvCreateProject.setVisibility(View.GONE);
+                            dialog.dismiss();
+                        }
                     }
                     else
                     {
                         mTvCreateProject.setVisibility(View.VISIBLE);
+                        dialog.dismiss();
                     }
                 }
-                dialog.dismiss();
             }
         });
 

@@ -85,4 +85,10 @@
     <string name="full_name">Full Name</string>
     <string name="password">Password</string>
     <string name="sign_up">Sign Up</string>
+    <string name="project_budget">Project Budget*</string>
+    <string name="project_name">Project Name*</string>
+    <string name="add_project">Add Project</string>
+    <string name="project_start_date">Project Start Date*</string>
+    <string name="project_due_date">Project Due Date*</string>
+    <string name="create">Create</string>
 </resources>

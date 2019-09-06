@@ -24,12 +24,14 @@ import java.util.ArrayList;
 public class WorkerRVSelectAdapter extends RecyclerView.Adapter<WorkerRVSelectAdapter.ViewHolder> {
 
     private ArrayList<WorkerModel> workerModels;
+    private ArrayList<String> selectedWorkerModelsId;
 
     private Context mContext;
 
     public WorkerRVSelectAdapter(ArrayList<WorkerModel> workerModels, Context mContext) {
         this.workerModels = workerModels;
         this.mContext = mContext;
+        this.selectedWorkerModelsId = new ArrayList<>();
     }
 
     @NonNull
@@ -56,10 +58,12 @@ public class WorkerRVSelectAdapter extends RecyclerView.Adapter<WorkerRVSelectAd
                 {
                     workerModel.setSelected(true);
                     holder.circleImageView.setImageDrawable(v.getResources().getDrawable(R.drawable.ic_tick));
+                    selectedWorkerModelsId.add(workerModel.getEmp_id());
                 }
                 else
                 {
                     workerModel.setSelected(false);
+                    selectedWorkerModelsId.remove(workerModel.getEmp_id());
                     Picasso.get()
                             .load(workerModel.getImgUrl())
                             .noFade()
@@ -68,6 +72,11 @@ public class WorkerRVSelectAdapter extends RecyclerView.Adapter<WorkerRVSelectAd
                 }
             }
         });
+    }
+
+    public ArrayList<String> getSelectedWorkerModels()
+    {
+        return this.selectedWorkerModelsId;
     }
 
     @Override
