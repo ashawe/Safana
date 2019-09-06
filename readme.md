@@ -21,7 +21,11 @@
 - Worker can see the holidays, working days and the tasks by selecting date from calendar
 - "Current project" menu in worker dashboard has a custom icon which changes color based on the status of project i.e. green - on time, orange - behind, red - over due
 
-### Get DEMO APK [HERE](https://github.com/ashawe/Safana/releases/tag/v1.0) use SUP001 AND EMP1523 as login ids for supervisor and employee respectively. Passwords are same as login id 
+### Get DEMO APK [HERE](https://github.com/ashawe/Safana/releases/tag/v1.0) 
+Demo credentials:
+use SUP001 : sup001 for supervisor login
+use EMP1523 : harsh123 for employee login
+
 ### User Manual
 #### Employee/Worker
 <table>
