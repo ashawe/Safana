@@ -22,6 +22,7 @@
 - "Current project" menu in worker dashboard has a custom icon which changes color based on the status of project i.e. green - on time, orange - behind, red - over due
 
 ### Get DEMO APK [HERE](https://github.com/ashawe/Safana/releases/tag/v1.0) 
+
 Demo credentials:
 use SUP001 : sup001 for supervisor login
 use EMP1523 : harsh123 for employee login
@@ -212,6 +213,10 @@ use EMP1523 : harsh123 for employee login
 </table>
 
 and much more...
+
+### Technology Stack
+- Java (Android)
+- Firebase (firestore database)
 
 ### Sample Firebase Data
 <img src="http://iamrohitsuthar.000webhostapp.com/android/github/safana/supervisor/Capture1.PNG" width="200"/>
