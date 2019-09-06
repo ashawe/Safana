@@ -27,6 +27,7 @@ public class WorkerDetailsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         workerDetailsViewModel = ViewModelProviders.of(this).get(WorkerDetailsViewModel.class);
+        workerDetailsViewModel.initData();
         View root = inflater.inflate(R.layout.fragment_worker_details, container, false);
         FloatingActionButton fab = root.findViewById(R.id.fab);
 

@@ -27,8 +27,8 @@ public class WorkerRVSelectAdapter extends RecyclerView.Adapter<WorkerRVSelectAd
 
     private Context mContext;
 
-    public WorkerRVSelectAdapter(WorkerDetailsViewModel workerDetailsViewModel, Context mContext) {
-        this.workerModels = workerDetailsViewModel.getWorkerModels();
+    public WorkerRVSelectAdapter(ArrayList<WorkerModel> workerModels, Context mContext) {
+        this.workerModels = workerModels;
         this.mContext = mContext;
     }
 
