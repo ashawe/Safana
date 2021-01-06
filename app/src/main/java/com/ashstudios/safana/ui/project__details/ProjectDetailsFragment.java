@@ -1,6 +1,7 @@
 package com.ashstudios.safana.ui.project__details;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -50,21 +51,23 @@ public class ProjectDetailsFragment extends Fragment {
     private PieChartView pieLineChartView;
     private ProjectDetailsViewModel projectDetailsViewModel;
     public FirebaseFirestore db;
-    ProgressBar progressBar;
+    private ProgressBar progressBar;
     private AlertDialog dialog;
-    SharedPref sharedPref;
-    ScrollView scrollView;
-    String projectId;
-    DocumentSnapshot projectDetails;
-    TextView mTvCreateProject,mTvProjectName,mTvProjectDueDate,mTvProjectNumWorkers,mTvProjectBudget,mTvProjectStartDate,mTvAdditionalDetails;
+    private SharedPref sharedPref;
+    private ScrollView scrollView;
+    private String projectId;
+    private DocumentSnapshot projectDetails;
+    private TextView mTvCreateProject,mTvProjectName,mTvProjectDueDate,mTvProjectNumWorkers,mTvProjectBudget,mTvProjectStartDate,mTvAdditionalDetails;
+    private FloatingActionButton fab;
+    private String isEditProject = "false";
+    private View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         projectDetailsViewModel =
                 ViewModelProviders.of(this).get(ProjectDetailsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_project_details, container, false);
+        root = inflater.inflate(R.layout.fragment_project_details, container, false);
         progressBar = root.findViewById(R.id.progress_bar);
-        FloatingActionButton fab = root.findViewById(R.id.fab);
         scrollView = root.findViewById(R.id.sv_project_details);
         mTvCreateProject = root.findViewById(R.id.nothing_here);
         mTvProjectName = root.findViewById(R.id.title_project_name);
@@ -73,7 +76,7 @@ public class ProjectDetailsFragment extends Fragment {
         mTvProjectBudget = root.findViewById(R.id.tv_budget);
         mTvProjectStartDate = root.findViewById(R.id.tv_start_date);
         mTvAdditionalDetails = root.findViewById(R.id.tv_additional_details);
-
+        fab = root.findViewById(R.id.fab);
         sharedPref = new SharedPref(getActivity());
 
         // firestore
@@ -98,11 +101,19 @@ public class ProjectDetailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent generateEmployeeId = new Intent(getContext(), NewProjectActivity.class);
+                Msg.log("peoject: "+isEditProject);
+                generateEmployeeId.putExtra("isEdit",isEditProject);
                 startActivity(generateEmployeeId);
             }
         });
 
         String empId = sharedPref.getEMP_ID();
+        return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         dialog.show();
         db.collection("Projects").whereEqualTo("supervisor_id",sharedPref.getEMP_ID()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -122,7 +133,10 @@ public class ProjectDetailsFragment extends Fragment {
                             scrollView.setVisibility(View.VISIBLE);
                             mTvCreateProject.setVisibility(View.GONE);
                             dialog.dismiss();
+                            isEditProject = "true";
                         }
+                        //if project is available then change the fab icon to edit
+                        showEditIcon();
                     }
                     else
                     {
@@ -134,7 +148,11 @@ public class ProjectDetailsFragment extends Fragment {
         });
 
         initGraphs(root);
-        return root;
+    }
+
+    private void showEditIcon() {
+        fab.setImageResource(R.drawable.ic_edit_pencil);
+        fab.setImageTintList(ColorStateList.valueOf(Color.WHITE));
     }
 
     private void initGraphs(View root) {

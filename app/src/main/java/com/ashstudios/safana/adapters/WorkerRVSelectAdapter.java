@@ -15,6 +15,7 @@ import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.ashstudios.safana.R;
 import com.ashstudios.safana.models.WorkerModel;
+import com.ashstudios.safana.others.Msg;
 import com.ashstudios.safana.ui.worker_details.WorkerDetailsViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -51,6 +52,10 @@ public class WorkerRVSelectAdapter extends RecyclerView.Adapter<WorkerRVSelectAd
                 .noFade()
                 .resizeDimen(R.dimen.profile_photo,R.dimen.profile_photo)
                 .into(holder.circleImageView);
+        if(workerModel.isSelected()) {
+            holder.circleImageView.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_tick));
+        }
+
         holder.ll_worker_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
