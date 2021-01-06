@@ -9,23 +9,22 @@
 
 ### Features
 - Add new employee
-- Add Employee to the projects
-- Assign tasks to the employees
-- Project analysis and statistics
-- Tracking the project work such as completion percent, total work, etc
+- Add Employee to the projects (Frontend only)
+- Assign tasks to the employees (Frontend only)
+- Project analysis and statistics (Frontend only)
+- Tracking the project work such as completion percent, total work, etc (Frontend only)
 - Create new projects and add employees by the supervisor
-- Allocate allowances to the workers
+- Allocate allowances to the workers (Frontend only)
 - Worker Laws
-- Workers able to request for the leave application
-- Allow or Reject leave application submitted by users
-- Worker can see the holidays, working days and the tasks by selecting date from calendar
-- "Current project" menu in worker dashboard has a custom icon which changes color based on the status of project i.e. green - on time, orange - behind, red - over due
+- Workers able to request for the leave application (Frontend only)
+- Allow or Reject leave application submitted by users (Frontend only)
+- Worker can see the holidays, working days and the tasks by selecting date from calendar (Frontend only)
+- "Current project" menu in worker dashboard has a custom icon which changes color based on the status of project i.e. green - on time, orange - behind, red - over due (Frontend only)
 
 ### Get DEMO APK [HERE](https://github.com/ashawe/Safana/releases/tag/v1.0) 
 
-Demo credentials:
-use SUP001 : sup001 for supervisor login
-use EMP1523 : harsh123 for employee login
+### HOW to set up the firebase cloud storage so that you can login as a supervisor:
+Follow this [issue](https://github.com/ashawe/Safana/issues/9#issuecomment-755375281) to set up the database
 
 ### User Manual
 #### Employee/Worker
