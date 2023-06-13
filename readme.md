@@ -21,10 +21,15 @@
 - Worker can see the holidays, working days and the tasks by selecting date from calendar (Frontend only)
 - "Current project" menu in worker dashboard has a custom icon which changes color based on the status of project i.e. green - on time, orange - behind, red - over due (Frontend only)
 
-### Get DEMO APK [HERE](https://github.com/ashawe/Safana/releases/tag/v1.0) 
+### Get DEMO APK [HERE](https://github.com/ashawe/Safana/releases/tag/v1.0)
+Note that the DEMO APK doesn't work because we weren't able to sustain a firebase environment for this long. If you want to see the app in action, please build the database in firebase, clone this repo, change the database info in the app, and then launch it. A screenshot of a part of the database is given below but we couldn't find a complete database structure. So you'd probably have to make it based on the app code (look a how the requests are being handled).
+Thank you for understanding.
 
 ### HOW to set up the firebase cloud storage so that you can login as a supervisor:
 Follow this [issue](https://github.com/ashawe/Safana/issues/9#issuecomment-755375281) to set up the database
+
+### Screenshots: [View this webarchive.org page](https://web.archive.org/web/20201222203106/https://github.com/ashawe/Safana)
+We lost the orginal screenshots however, some good soul captured a snapshot of our repo back in 2020 and that's where you can find all the screenshots.
 
 ### User Manual
 #### Employee/Worker
