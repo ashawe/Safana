@@ -28,8 +28,6 @@ Thank you for understanding.
 ### HOW to set up the firebase cloud storage so that you can login as a supervisor:
 Follow this [issue](https://github.com/ashawe/Safana/issues/9#issuecomment-755375281) to set up the database
 
-### Screenshots: [View this webarchive.org page](https://web.archive.org/web/20201222203106/https://github.com/ashawe/Safana)
-We lost the orginal screenshots however, some good soul captured a snapshot of our repo back in 2020 and that's where you can find all the screenshots.
 
 ### User Manual
 #### Employee/Worker
@@ -135,7 +133,7 @@ We lost the orginal screenshots however, some good soul captured a snapshot of o
     <td width="225" align="center">
       <p><b>Worker Details</b></p>
       <p>List of employees under him / her</p>
-      <img src="images/supervisor/login_empid.jpg" width="200"/>
+      <img src="images/supervisor/sup_worker_details_sort.jpg" width="200"/>
     </td>
     <td width="225" align="center">
       <p><b>Worker Details Sort</b></p>
@@ -223,7 +221,7 @@ and much more...
 - Firebase (firestore database)
 
 ### Sample Firebase Data
-<img src="images/db/db.PNG" width="200"/>
+<img src="images/db/db.png" width="300"/>
   
 ### Collaborate with us!
 Want to contribute? Great!<br/>
